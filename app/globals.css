@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --color-comic-red: #FF0033;
+  --color-comic-blue: #00D2FF;
+  --color-comic-purple: #D000FF;
+  --color-comic-yellow: #FFE600;
+  --color-comic-dark: #050510;
+  
+  --font-comic: "Bangers", system-ui, sans-serif;
+  --font-body: "Space Grotesk", system-ui, sans-serif;
+
+  --animate-glitch: glitch 1s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-fast: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+:root {
+  --background: #050510;
+  --foreground: #ffffff;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* Comic Halftone Pattern */
+.bg-halftone {
+  background-image: radial-gradient(circle, var(--color-comic-dark) 20%, transparent 20%), radial-gradient(circle, var(--color-comic-dark) 20%, transparent 20%);
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+  opacity: 0.3;
+}
+
+.bg-halftone-white {
+   background-image: radial-gradient(circle, rgba(255,255,255,0.1) 20%, transparent 20%), radial-gradient(circle, rgba(255,255,255,0.1) 20%, transparent 20%);
+   background-size: 8px 8px;
+   background-position: 0 0, 4px 4px;
+}
+
+/* Custom Utilities that might get complicated in pure utility classes */
+.text-shadow-comic {
+  text-shadow: 2px 2px 0px #000000;
+}
+
+.box-shadow-comic {
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+
+/* Glitch Animation Keyframes */
+@keyframes glitch {
+  2%, 64% { transform: translate(2px,0) skew(0deg); }
+  4%, 60% { transform: translate(-2px,0) skew(0deg); }
+  62% { transform: translate(0,0) skew(5deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
