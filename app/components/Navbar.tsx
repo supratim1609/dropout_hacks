@@ -1,17 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Home, Trophy, Calendar, Users, HelpCircle } from "lucide-react";
 import clsx from "clsx";
 
 const navLinks = [
-    { name: "Home", icon: <Home className="w-6 h-6" />, href: "#" },
-    { name: "Tracks", icon: <Users className="w-6 h-6" />, href: "#" },
-    { name: "Timeline", icon: <Calendar className="w-6 h-6" />, href: "#" },
-    { name: "Prizes", icon: <Trophy className="w-6 h-6" />, href: "#" },
+    { name: "Home", icon: <Home className="w-6 h-6" />, href: "/" },
+    { name: "Tracks", icon: <Users className="w-6 h-6" />, href: "/#tracks" },
+    { name: "Timeline", icon: <Calendar className="w-6 h-6" />, href: "/#timeline" },
+    { name: "Prizes", icon: <Trophy className="w-6 h-6" />, href: "/#prizes" },
     { name: "Team", icon: <Users className="w-6 h-6" />, href: "/team" },
-    { name: "FAQ", icon: <HelpCircle className="w-6 h-6" />, href: "#" },
+    { name: "FAQ", icon: <HelpCircle className="w-6 h-6" />, href: "/#faq" },
 ];
 
 export const Navbar = () => {
@@ -34,16 +35,19 @@ export const Navbar = () => {
             {/* Top Bar */}
             <nav className="fixed top-0 left-0 right-0 z-[9999] p-6 flex justify-between items-center pointer-events-none">
                 {/* Logo - Pointer events auto to allow clicking */}
-                <div className="pointer-events-auto bg-black border-2 border-[var(--color-comic-red)] p-2 shadow-[4px_4px_0_white] transform -rotate-1">
-                    <span className="text-xl font-black font-[family-name:var(--font-comic)] text-white tracking-wider">
-                        DROPOUT<span className="text-[var(--color-comic-red)]">HACKS</span>
-                    </span>
-                </div>
+                {/* Logo - Pointer events auto to allow clicking */}
+                <Link href="/" className="pointer-events-auto cursor-none">
+                    <div className="bg-black border-2 border-[var(--color-comic-red)] p-2 shadow-[4px_4px_0_white] transform -rotate-1 hover:rotate-2 transition-transform">
+                        <span className="text-xl font-black font-[family-name:var(--font-comic)] text-white tracking-wider">
+                            DROPOUT<span className="text-[var(--color-comic-red)]">HACKS</span>
+                        </span>
+                    </div>
+                </Link>
 
                 {/* Hamburger Button */}
                 <button
                     onClick={toggleMenu}
-                    className="pointer-events-auto bg-[var(--color-comic-blue)] text-black border-2 border-black p-2 hover:bg-white transition-colors shadow-[4px_4px_0_black]"
+                    className="pointer-events-auto bg-[var(--color-comic-blue)] text-black border-2 border-black p-2 hover:bg-white transition-colors shadow-[4px_4px_0_black] cursor-none"
                 >
                     {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
                 </button>
@@ -160,7 +164,7 @@ export const Navbar = () => {
                                         initial={windowWidth < 768 ? { y: -20, opacity: 0 } : { x: 100, opacity: 0 }}
                                         animate={windowWidth < 768 ? { y: 0, opacity: 1 } : { x: 0, opacity: 1 }}
                                         transition={{ delay: 0.3 + idx * 0.1 }}
-                                        className="flex items-center gap-4 text-3xl font-black font-[family-name:var(--font-comic)] text-white hover:text-[var(--color-comic-yellow)] transition-colors group"
+                                        className="flex items-center gap-4 text-3xl font-black font-[family-name:var(--font-comic)] text-white hover:text-[var(--color-comic-yellow)] transition-colors group cursor-none"
                                         onClick={() => setIsOpen(false)}
                                     >
                                         <span className="bg-white text-black p-2 border-2 border-black group-hover:rotate-12 transition-transform shadow-[4px_4px_0_black]">
@@ -174,7 +178,7 @@ export const Navbar = () => {
                             </div>
 
                             <div className="mt-12 border-t-2 border-dashed border-gray-600 pt-8 text-center relative z-10 hover:scale-105 transition-transform">
-                                <button className="bg-[var(--color-comic-red)] text-white font-bold py-3 px-8 uppercase border-2 border-white shadow-[4px_4px_0_white] hover:shadow-none transition-all w-full">
+                                <button className="bg-[var(--color-comic-red)] text-white font-bold py-3 px-8 uppercase border-2 border-white shadow-[4px_4px_0_white] hover:shadow-none transition-all w-full cursor-none">
                                     Register Now
                                 </button>
                             </div>

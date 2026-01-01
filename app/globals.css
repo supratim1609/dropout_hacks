@@ -6,7 +6,7 @@
   --color-comic-purple: #D000FF;
   --color-comic-yellow: #FFE600;
   --color-comic-dark: #050510;
-  
+
   --font-comic: "Bangers", system-ui, sans-serif;
   --font-body: "Space Grotesk", system-ui, sans-serif;
 
@@ -27,6 +27,12 @@ body {
   overflow-x: hidden;
 }
 
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+}
+
 /* Comic Halftone Pattern */
 .bg-halftone {
   background-image: radial-gradient(circle, var(--color-comic-dark) 20%, transparent 20%), radial-gradient(circle, var(--color-comic-dark) 20%, transparent 20%);
@@ -36,9 +42,9 @@ body {
 }
 
 .bg-halftone-white {
-   background-image: radial-gradient(circle, rgba(255,255,255,0.1) 20%, transparent 20%), radial-gradient(circle, rgba(255,255,255,0.1) 20%, transparent 20%);
-   background-size: 8px 8px;
-   background-position: 0 0, 4px 4px;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 20%, transparent 20%), radial-gradient(circle, rgba(255, 255, 255, 0.1) 20%, transparent 20%);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
 }
 
 /* Custom Utilities that might get complicated in pure utility classes */
@@ -52,12 +58,30 @@ body {
 
 /* Glitch Animation Keyframes */
 @keyframes glitch {
-  2%, 64% { transform: translate(2px,0) skew(0deg); }
-  4%, 60% { transform: translate(-2px,0) skew(0deg); }
-  62% { transform: translate(0,0) skew(5deg); }
+
+  2%,
+  64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+
+  4%,
+  60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }

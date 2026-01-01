@@ -2,9 +2,9 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ComicPanel } from "./ComicPanel";
 import { ArrowRight, Terminal } from "lucide-react";
 import { DanglingSpider } from "./DanglingSpider";
+import { MysteryVault } from "./MysteryVault";
 
 export const HeroSection = () => {
     return (
@@ -84,30 +84,8 @@ export const HeroSection = () => {
                 </div>
 
                 {/* Right Column: Visual / Interactive */}
-                <div className="relative hidden md:block">
-                    <ComicPanel variant="purple" className="rotate-2">
-                        <div className="aspect-square flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1535905557558-afc4877a26fc?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center grayscale contrast-125 mix-blend-luminosity">
-                            {/* Placeholder for hackathon graphic */}
-                            <div className="bg-[var(--color-comic-dark)]/90 p-8 text-center border-2 border-[var(--color-comic-blue)]">
-                                <h2 className="text-4xl font-[family-name:var(--font-comic)] text-[var(--color-comic-blue)] mb-2">
-                                    DATE: TBD
-                                </h2>
-                                <div className="text-6xl font-black text-white font-[family-name:var(--font-body)] tracking-widest">
-                                    00:00:00
-                                </div>
-                                <p className="text-gray-400 mt-2 uppercase tracking-widest text-sm">Until Portal Opens</p>
-                            </div>
-                        </div>
-                    </ComicPanel>
-
-                    {/* Floating elements */}
-                    <motion.div
-                        animate={{ y: [0, -20, 0] }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute -bottom-10 -right-10 bg-[var(--color-comic-yellow)] text-black font-bold p-4 border-2 border-black shadow-[4px_4px_0px_0px_white] -rotate-12 z-20 font-[family-name:var(--font-comic)] text-2xl"
-                    >
-                        POW!
-                    </motion.div>
+                <div className="relative hidden md:flex items-center justify-center min-h-[500px]">
+                    <MysteryVault />
                 </div>
             </div>
         </section>

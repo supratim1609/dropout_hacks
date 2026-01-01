@@ -43,7 +43,7 @@ export const SponsorsSection = () => {
                 </div>
 
                 <div className="text-center mt-12">
-                    <button className="bg-black text-white font-bold px-8 py-4 uppercase hover:scale-105 transition-transform font-[family-name:var(--font-comic)] text-xl shadow-[4px_4px_0_0_rgba(100,100,100,1)]">
+                    <button className="bg-black text-white font-bold px-8 py-4 uppercase hover:scale-105 transition-transform font-[family-name:var(--font-comic)] text-xl shadow-[4px_4px_0_0_rgba(100,100,100,1)] cursor-none">
                         Become a Sponsor
                     </button>
                 </div>

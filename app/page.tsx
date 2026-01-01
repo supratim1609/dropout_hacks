@@ -11,12 +11,31 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <HeroSection />
-      <AboutSection />
-      <TracksSection />
-      <TimelineSection />
-      <PrizesSection />
-      <SponsorsSection />
-      <FAQSection />
+
+      <div id="about">
+        <AboutSection />
+      </div>
+
+      <div id="tracks">
+        <TracksSection />
+      </div>
+
+      <div id="timeline">
+        <TimelineSection />
+      </div>
+
+      <div id="prizes">
+        <PrizesSection />
+      </div>
+
+      <div id="sponsors">
+        <SponsorsSection />
+      </div>
+
+      <div id="faq">
+        <FAQSection />
+      </div>
+
       <Footer />
     </main>
   );

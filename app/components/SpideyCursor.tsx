@@ -34,7 +34,7 @@ export const SpideyCursor = () => {
 
     return (
         <motion.div
-            className="fixed top-0 left-0 pointer-events-none z-[9999] drop-shadow-lg"
+            className="fixed top-0 left-0 pointer-events-none z-[10000] drop-shadow-lg"
             style={{
                 x: cursorXSpring,
                 y: cursorYSpring,
