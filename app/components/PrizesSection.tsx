@@ -39,9 +39,9 @@ export const PrizesSection = () => {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="order-1 md:order-2 -mt-12 md:-mt-0"
+                    className="order-1 md:order-2 mt-12 md:-mt-12"
                 >
-                    <ComicPanel variant="primary" className="flex flex-col items-center text-center h-[420px] justify-start pt-12 border-4 z-10 relative">
+                    <ComicPanel variant="primary" className="flex flex-col items-center text-center h-[420px] justify-start pt-12 border-4 z-10 relative mx-4 md:mx-0">
                         <div className="absolute -top-10">
                             <Trophy className="w-24 h-24 text-[var(--color-comic-yellow)] drop-shadow-[4px_4px_0_rgba(0,0,0,1)]" />
                         </div>

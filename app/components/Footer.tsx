@@ -1,20 +1,28 @@
 "use client";
 
 import React from "react";
+import { DanglingSpidey } from "./DanglingSpidey";
 
 export const Footer = () => {
     return (
-        <footer className="bg-black text-white py-12 border-t-4 border-[var(--color-comic-blue)]">
-            <div className="container mx-auto text-center">
+        <footer className="bg-black text-white py-12 border-t-4 border-[var(--color-comic-blue)] relative overflow-hidden">
+            {/* Dangling Spidey - Left Side */}
+            <DanglingSpidey width={180} height={252} />
+
+            <div className="container mx-auto text-center relative z-10">
                 <h2 className="text-3xl font-black font-[family-name:var(--font-comic)] mb-4">
                     DROPOUT HACKS
                 </h2>
-                <div className="flex justify-center gap-6 mb-8 font-bold font-[family-name:var(--font-body)]">
-                    <a href="#" className="hover:text-[var(--color-comic-red)] cursor-none">Instagram</a>
-                    <a href="#" className="hover:text-[var(--color-comic-blue)] cursor-none">Twitter</a>
-                    <a href="#" className="hover:text-[var(--color-comic-purple)] cursor-none">Discord</a>
-                    <a href="#" className="hover:text-[var(--color-comic-yellow)] cursor-none">LinkedIn</a>
-                    <a href="/rules" className="hover:text-white border-l-2 border-gray-600 pl-6 cursor-none">Rules / CoC</a>
+                <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-8 font-bold font-[family-name:var(--font-body)] w-full">
+                    <a href="#" className="hover:text-[var(--color-comic-red)] cursor-none py-2">Instagram</a>
+                    <a href="#" className="hover:text-[var(--color-comic-blue)] cursor-none py-2">Twitter</a>
+                    <a href="#" className="hover:text-[var(--color-comic-purple)] cursor-none py-2">Discord</a>
+                    <a href="#" className="hover:text-[var(--color-comic-yellow)] cursor-none py-2">LinkedIn</a>
+
+                    {/* Vertical Divider (Desktop Only) */}
+                    <div className="hidden md:block w-px h-6 bg-gray-600"></div>
+
+                    <a href="/rules" className="hover:text-white cursor-none py-2">Rules / CoC</a>
                 </div>
                 <p className="text-gray-500 text-sm">
                     © {new Date().getFullYear()} Dropout Hacks. All rights reserved across the multiverse. <br />

@@ -3,13 +3,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Terminal } from "lucide-react";
-import { DanglingSpider } from "./DanglingSpider";
+import { DanglingSpidey } from "./DanglingSpidey";
 import { MysteryVault } from "./MysteryVault";
 
 export const HeroSection = () => {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 px-4">
-            <DanglingSpider />
+            <DanglingSpidey className="hidden lg:block absolute right-10 -top-20 z-20 pointer-events-none" width={150} height={210} />
             {/* Background Elements */}
             <div className="absolute inset-0 bg-halftone z-0 pointer-events-none" />
 
@@ -68,13 +68,13 @@ export const HeroSection = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.4 }}
                     >
-                        <button className="group relative bg-[var(--color-comic-red)] text-white font-bold text-xl px-8 py-4 uppercase border-2 border-white hover:bg-white hover:text-[var(--color-comic-red)] transition-all shadow-[6px_6px_0px_0px_white] hover:shadow-[2px_2px_0px_0px_white] hover:translate-x-1 hover:translate-y-1">
+                        <button className="group relative bg-[var(--color-comic-red)] text-white font-bold text-xl px-8 py-4 uppercase border-2 border-white hover:bg-white hover:text-[var(--color-comic-red)] transition-all shadow-[6px_6px_0px_0px_white] hover:shadow-[2px_2px_0px_0px_white] hover:translate-x-1 hover:translate-y-1 cursor-none">
                             <span className="absolute -top-6 -right-6 bg-[var(--color-comic-yellow)] text-black text-sm font-black px-2 py-1 rotate-12 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-black shadow-[2px_2px_0_black]">THWIP!</span>
                             <span className="flex items-center gap-2">
                                 Register Now <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                             </span>
                         </button>
-                        <button className="group relative bg-transparent text-white font-bold text-xl px-8 py-4 uppercase border-2 border-white hover:bg-[var(--color-comic-blue)] hover:border-[var(--color-comic-blue)] hover:text-black transition-all">
+                        <button className="group relative bg-transparent text-white font-bold text-xl px-8 py-4 uppercase border-2 border-white hover:bg-[var(--color-comic-blue)] hover:border-[var(--color-comic-blue)] hover:text-black transition-all cursor-none">
                             <span className="absolute -bottom-6 -left-6 bg-[var(--color-comic-yellow)] text-black text-sm font-black px-2 py-1 -rotate-12 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-black shadow-[2px_2px_0_black]">ZIP!</span>
                             <span className="flex items-center gap-2">
                                 Discord <Terminal className="w-6 h-6" />

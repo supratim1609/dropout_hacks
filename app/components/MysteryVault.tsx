@@ -10,7 +10,7 @@ export const MysteryVault = () => {
     return (
         <div className="relative w-full h-full flex items-center justify-center perspective-1000">
             <motion.div
-                className="relative w-[340px] h-[420px] cursor-pointer group"
+                className="relative w-[340px] h-[420px] cursor-none group"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 animate={{

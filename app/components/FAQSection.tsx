@@ -31,7 +31,7 @@ export const FAQSection = () => {
                         <div key={index} className="border-2 border-white bg-black">
                             <button
                                 onClick={() => toggle(index)}
-                                className="w-full p-4 flex justify-between items-center text-left text-white font-bold hover:bg-[var(--color-comic-red)] hover:text-white transition-colors"
+                                className="w-full p-4 flex justify-between items-center text-left text-white font-bold hover:bg-[var(--color-comic-red)] hover:text-white transition-colors cursor-none"
                             >
                                 <span className="text-lg md:text-xl font-[family-name:var(--font-body)]">{faq.q}</span>
                                 {activeIndex === index ? <Minus /> : <Plus />}
