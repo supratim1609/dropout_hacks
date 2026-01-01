@@ -104,7 +104,7 @@ export const HeroSection = () => {
                     <motion.div
                         animate={{ y: [0, -20, 0] }}
                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute -top-10 -right-10 bg-[var(--color-comic-yellow)] text-black font-bold p-4 border-2 border-black shadow-[4px_4px_0px_0px_white] rotate-12 z-20 font-[family-name:var(--font-comic)] text-2xl"
+                        className="absolute -bottom-10 -right-10 bg-[var(--color-comic-yellow)] text-black font-bold p-4 border-2 border-black shadow-[4px_4px_0px_0px_white] -rotate-12 z-20 font-[family-name:var(--font-comic)] text-2xl"
                     >
                         POW!
                     </motion.div>

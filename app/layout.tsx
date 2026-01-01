@@ -4,6 +4,7 @@ import "./globals.css";
 import clsx from "clsx";
 import { WebShooter } from "./components/WebShooter";
 import { SpideyCursor } from "./components/SpideyCursor";
+import { Navbar } from "./components/Navbar";
 
 const bangers = Bangers({
   weight: "400",
@@ -37,6 +38,7 @@ export default function RootLayout({
       >
         <SpideyCursor />
         <WebShooter />
+        <Navbar />
         {children}
       </body>
     </html>
