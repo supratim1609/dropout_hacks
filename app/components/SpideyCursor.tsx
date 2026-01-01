@@ -8,7 +8,7 @@ export const SpideyCursor = () => {
     const cursorX = useMotionValue(-100);
     const cursorY = useMotionValue(-100);
 
-    const springConfig = { damping: 20, stiffness: 150, mass: 0.5 };
+    const springConfig = { damping: 25, stiffness: 200, mass: 0.5 };
     const cursorXSpring = useSpring(cursorX, springConfig);
     const cursorYSpring = useSpring(cursorY, springConfig);
 
@@ -33,27 +33,34 @@ export const SpideyCursor = () => {
     if (!isVisible) return null;
 
     return (
-        <>
-            {/* Main Cursor */}
-            <motion.div
-                className="fixed top-0 left-0 w-8 h-8 rounded-full border-2 border-white bg-[var(--color-comic-red)] pointer-events-none z-[9999] flex items-center justify-center mix-blend-difference"
-                style={{
-                    x: cursorXSpring,
-                    y: cursorYSpring,
-                }}
-            >
-                <div className="w-1 h-1 bg-black rounded-full" />
-            </motion.div>
+        <motion.div
+            className="fixed top-0 left-0 pointer-events-none z-[9999] drop-shadow-lg"
+            style={{
+                x: cursorXSpring,
+                y: cursorYSpring,
+            }}
+        >
+            <svg width="32" height="32" viewBox="0 0 200 200" className="transform drop-shadow-[2px_2px_0_rgba(0,0,0,0.5)]">
+                {/* Head Shape */}
+                <path d="M100 30 C 60 30 35 70 35 100 C 35 140 65 170 100 175 C 135 170 165 140 165 100 C 165 70 140 30 100 30 Z" fill="#D80027" stroke="white" strokeWidth="8" />
 
-            {/* Glitch Trail (Optional simple trail) */}
-            <motion.div
-                className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[var(--color-comic-blue)] pointer-events-none z-[9998] opacity-50"
-                style={{
-                    x: cursorX,
-                    y: cursorY,
-                }}
-                transition={{ delay: 0.1 }}
-            />
-        </>
+                {/* Webbing - Simplified for small size */}
+                <g stroke="black" strokeWidth="3" opacity="0.4" fill="none">
+                    <path d="M100 100 L100 30" />
+                    <path d="M100 100 L165 100" />
+                    <path d="M100 100 L35 100" />
+                    <path d="M100 100 L145 155" />
+                    <path d="M100 100 L55 155" />
+                    <path d="M100 100 L145 45" />
+                    <path d="M100 100 L55 45" />
+                </g>
+
+                {/* Eyes */}
+                {/* Left Eye */}
+                <path d="M85 80 Q 50 70 55 110 C 60 130 80 120 90 110 C 95 105 90 85 85 80 Z" fill="white" stroke="black" strokeWidth="6" />
+                {/* Right Eye */}
+                <path d="M115 80 Q 150 70 145 110 C 140 130 120 120 110 110 C 105 105 110 85 115 80 Z" fill="white" stroke="black" strokeWidth="6" />
+            </svg>
+        </motion.div>
     );
 };
