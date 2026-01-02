@@ -20,7 +20,7 @@ export const FAQSection = () => {
     };
 
     return (
-        <section className="py-20 px-4 bg-[var(--color-comic-dark)]">
+        <section id="faq" className="py-20 px-4 bg-[var(--color-comic-dark)]">
             <div className="container mx-auto max-w-3xl">
                 <h2 className="text-5xl md:text-7xl font-black font-[family-name:var(--font-comic)] text-white text-center mb-12 text-shadow-comic">
                     FAQs

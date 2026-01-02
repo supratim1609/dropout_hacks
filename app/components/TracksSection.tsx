@@ -52,7 +52,7 @@ const tracks = [
 
 export const TracksSection = () => {
     return (
-        <section className="py-20 px-4 relative bg-[var(--color-comic-dark)]">
+        <section id="tracks" className="py-20 px-4 relative bg-[var(--color-comic-dark)]">
             {/* Section Header */}
             <div className="container mx-auto mb-16 text-center">
                 <motion.h2

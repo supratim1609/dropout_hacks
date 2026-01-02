@@ -9,8 +9,6 @@ import clsx from "clsx";
 const navLinks = [
     { name: "Home", icon: <Home className="w-6 h-6" />, href: "/" },
     { name: "Tracks", icon: <Users className="w-6 h-6" />, href: "/#tracks" },
-    { name: "Timeline", icon: <Calendar className="w-6 h-6" />, href: "/#timeline" },
-    { name: "Prizes", icon: <Trophy className="w-6 h-6" />, href: "/#prizes" },
     { name: "Team", icon: <Users className="w-6 h-6" />, href: "/team" },
     { name: "FAQ", icon: <HelpCircle className="w-6 h-6" />, href: "/#faq" },
 ];
