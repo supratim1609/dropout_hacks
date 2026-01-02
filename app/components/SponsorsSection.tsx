@@ -15,37 +15,42 @@ export const SponsorsSection = () => {
                 </p>
             </div>
 
-            <div className="container mx-auto max-w-4xl space-y-12">
-                {/* Top Tier */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <ComicPanel className="h-40 flex items-center justify-center bg-[var(--color-comic-dark)] text-white">
-                        <span className="text-2xl font-black uppercase">Sponsor 1</span>
-                    </ComicPanel>
-                    <ComicPanel className="h-40 flex items-center justify-center bg-[var(--color-comic-dark)] text-white">
-                        <span className="text-2xl font-black uppercase">Sponsor 2</span>
-                    </ComicPanel>
-                </div>
+            <div className="container mx-auto max-w-4xl">
+                <div className="bg-white border-4 border-black p-6 md:p-12 relative shadow-[12px_12px_0_var(--color-comic-dark)]">
+                    {/* Decorative corners */}
+                    <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-black -mt-2 -ml-2" />
+                    <div className="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-black -mt-2 -mr-2" />
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-black -mb-2 -ml-2" />
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-black -mb-2 -mr-2" />
 
-                {/* Second Tier */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <ComicPanel variant="blue" className="h-24 flex items-center justify-center">
-                        <span className="font-bold uppercase">Sponsor A</span>
-                    </ComicPanel>
-                    <ComicPanel variant="blue" className="h-24 flex items-center justify-center">
-                        <span className="font-bold uppercase">Sponsor B</span>
-                    </ComicPanel>
-                    <ComicPanel variant="purple" className="h-24 flex items-center justify-center">
-                        <span className="font-bold uppercase">Sponsor C</span>
-                    </ComicPanel>
-                    <ComicPanel variant="purple" className="h-24 flex items-center justify-center">
-                        <span className="font-bold uppercase">Sponsor D</span>
-                    </ComicPanel>
-                </div>
+                    <div className="flex flex-col items-center text-center space-y-6">
+                        <div className="animate-bounce">
+                            <span className="text-6xl md:text-8xl filter drop-shadow-[4px_4px_0_rgba(0,0,0,0.2)]">🛰️</span>
+                        </div>
 
-                <div className="text-center mt-12">
-                    <button className="bg-black text-white font-bold px-8 py-4 uppercase hover:scale-105 transition-transform font-[family-name:var(--font-comic)] text-xl shadow-[4px_4px_0_0_rgba(100,100,100,1)] cursor-none">
-                        Become a Sponsor
-                    </button>
+                        <h3 className="text-2xl md:text-4xl font-black font-[family-name:var(--font-comic)] uppercase">
+                            SIGNAL SCANNING...
+                        </h3>
+
+                        <p className="text-lg md:text-2xl font-bold font-[family-name:var(--font-body)] text-gray-800 max-w-2xl">
+                            We are currently looking for visionary partners to join the multiverse. <br />
+                            <span className="text-[var(--color-comic-red)]">0 Sponsors Found</span> (Yet).
+                        </p>
+
+                        <div className="pt-8 w-full max-w-md">
+                            <div className="h-2 bg-gray-200 rounded-full overflow-hidden border-2 border-black mb-2">
+                                <div className="h-full bg-[var(--color-comic-blue)] w-[5%] animate-pulse" />
+                            </div>
+                            <div className="flex justify-between text-xs font-bold font-mono">
+                                <span>INITIALIZING...</span>
+                                <span>TARGET: YOU</span>
+                            </div>
+                        </div>
+
+                        <button className="bg-black text-white font-black px-6 py-3 md:px-10 md:py-5 uppercase hover:scale-105 transition-transform font-[family-name:var(--font-comic)] text-lg md:text-2xl shadow-[6px_6px_0_0_var(--color-comic-red)] hover:shadow-[2px_2px_0_0_var(--color-comic-red)] hover:translate-x-1 hover:translate-y-1 cursor-none border-2 border-transparent hover:border-black hover:bg-[var(--color-comic-yellow)] hover:text-black mt-4">
+                            Become a Sponsor
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>

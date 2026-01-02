@@ -4,64 +4,17 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
-import { Github, Linkedin, Twitter } from "lucide-react";
-
-// Team Data
-const TEAM_MEMBERS = [
-    {
-        name: "Supratim",
-        role: "Lead Organizer",
-        image: "https://ui-avatars.com/api/?name=Supratim&background=ef4444&color=fff",
-        socials: { github: "#", linkedin: "#", twitter: "#" },
-        color: "var(--color-comic-red)"
-    },
-    {
-        name: "Arindam",
-        role: "Tech Lead",
-        image: "https://ui-avatars.com/api/?name=Arindam&background=0D8ABC&color=fff",
-        socials: { github: "#", linkedin: "#" },
-        color: "var(--color-comic-blue)"
-    },
-    {
-        name: "Priyanshu",
-        role: "Design Lead",
-        image: "https://ui-avatars.com/api/?name=Priyanshu&background=9333EA&color=fff",
-        socials: { linkedin: "#", twitter: "#" },
-        color: "var(--color-comic-purple)"
-    },
-    {
-        name: "Sneha",
-        role: "Community Manager",
-        image: "https://ui-avatars.com/api/?name=Sneha&background=F59E0B&color=fff",
-        socials: { linkedin: "#" },
-        color: "var(--color-comic-yellow)"
-    },
-    {
-        name: "Rohit",
-        role: "Event Coordinator",
-        image: "https://ui-avatars.com/api/?name=Rohit&background=10B981&color=fff",
-        socials: { github: "#", linkedin: "#" },
-        color: "#10B981" // Green
-    },
-    {
-        name: "Ananya",
-        role: "Sponsorship Lead",
-        image: "https://ui-avatars.com/api/?name=Ananya&background=EF4444&color=fff",
-        socials: { linkedin: "#" },
-        color: "#EF4444" // Red
-    },
-];
 
 export default function TeamPage() {
     return (
         <main className="min-h-screen bg-neutral-950 relative overflow-x-hidden selection:bg-[var(--color-comic-yellow)] selection:text-black">
             <Navbar />
 
-            <div className="pt-32 pb-20 container mx-auto px-4 min-h-screen flex flex-col justify-center">
+            <div className="pt-32 pb-20 container mx-auto px-4 min-h-screen flex flex-col justify-center items-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-center mb-16"
+                    className="text-center mb-12"
                 >
                     <span className="bg-[var(--color-comic-yellow)] text-black px-4 py-1 font-bold text-xl border-4 border-black shadow-[4px_4px_0_white] inline-block -rotate-2 mb-4">
                         MEET THE SQUAD
@@ -71,61 +24,40 @@ export default function TeamPage() {
                     </h1>
                 </motion.div>
 
-                {/* GRID CONTAINER */}
-                <div className="relative w-full max-w-7xl mx-auto">
+                {/* Recruitment Status */}
+                <div className="w-full max-w-4xl mx-auto text-center relative z-10">
+                    <div className="bg-black border-4 border-white p-6 md:p-16 relative">
+                        {/* Glitch Overlay */}
+                        <div className="absolute inset-0 bg-halftone opacity-10 pointer-events-none" />
 
-                    {/* GRID: 2 cols on mobile, 4 cols on desktop */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pb-12 px-0">
-                        {TEAM_MEMBERS.map((member, i) => (
-                            <motion.div
-                                key={member.name}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: i * 0.1, duration: 0.5 }}
-                                className="w-full bg-white border-2 md:border-4 border-black shadow-[4px_4px_0_var(--color-comic-blue)] md:shadow-[8px_8px_0_var(--color-comic-blue)] p-3 md:p-5 flex flex-col items-center hover:-translate-y-2 hover:shadow-[6px_6px_0_var(--color-comic-blue)] md:hover:shadow-[12px_12px_0_var(--color-comic-blue)] transition-all duration-300 group aspect-[3/4]"
-                                style={{
-                                    boxShadow: `4px 4px 0 ${member.color}` // Dynamic shadow color
-                                }}
+                        <div className="mb-8">
+                            <span className="text-5xl md:text-8xl animate-pulse">🕵️</span>
+                        </div>
+
+                        <h2 className="text-2xl md:text-4xl font-black text-white uppercase font-[family-name:var(--font-comic)] mb-6 tracking-widest text-red-500">
+                            ROSTER INCOMPLETE
+                        </h2>
+
+                        <p className="text-gray-300 font-bold font-[family-name:var(--font-body)] text-xl md:text-2xl mb-12 max-w-2xl mx-auto leading-relaxed">
+                            We are currently selecting the elite team of builders, designers, and chaos managers to run this event.
+                        </p>
+
+                        <div className="relative inline-block group">
+                            <div className="absolute inset-0 bg-[var(--color-comic-yellow)] transform translate-x-2 translate-y-2 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform" />
+                            <a
+                                href="https://forms.gle/ya7f6P1mg6nAwp1i6"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="relative block bg-white text-black font-black text-lg md:text-3xl px-8 py-4 md:px-12 md:py-6 uppercase border-4 border-black hover:-translate-y-1 hover:-translate-x-1 transition-transform cursor-none"
                             >
-                                {/* Image Frame */}
-                                <div className="w-full aspect-square border-2 md:border-4 border-black overflow-hidden mb-3 md:mb-6 bg-black relative">
-                                    <img
-                                        src={member.image}
-                                        alt={member.name}
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0"
-                                    />
-                                    {/* Halftone Overlay */}
-                                    <div className="absolute inset-0 bg-halftone opacity-20 pointer-events-none mix-blend-overlay" />
-                                </div>
+                                Apply to Join
+                            </a>
+                        </div>
 
-                                {/* Name & Role */}
-                                <h3 className="text-lg md:text-2xl font-black text-black uppercase font-[family-name:var(--font-comic)] text-center leading-none mb-1 md:mb-2 truncate w-full">
-                                    {member.name}
-                                </h3>
-                                <span className="text-[10px] md:text-xs font-black uppercase tracking-widest bg-black text-white px-2 py-1 mb-6 md:mb-6 -skew-x-12 truncate max-w-full">
-                                    {member.role}
-                                </span>
-
-                                {/* Socials */}
-                                <div className="flex gap-2 md:gap-4 mt-auto md:opacity-60 md:group-hover:opacity-100 transition-opacity">
-                                    {member.socials.github && (
-                                        <a href={member.socials.github} className="w-8 h-8 md:w-10 md:h-10 bg-black text-white rounded-full flex items-center justify-center border-2 border-transparent hover:bg-white hover:text-black hover:border-black transition-colors cursor-none">
-                                            <Github size={16} className="w-4 h-4 md:w-5 md:h-5" />
-                                        </a>
-                                    )}
-                                    {member.socials.linkedin && (
-                                        <a href={member.socials.linkedin} className="w-8 h-8 md:w-10 md:h-10 bg-[#0077b5] text-white rounded-full flex items-center justify-center border-2 border-transparent hover:bg-white hover:text-[#0077b5] hover:border-[#0077b5] transition-colors cursor-none">
-                                            <Linkedin size={16} className="w-4 h-4 md:w-5 md:h-5" />
-                                        </a>
-                                    )}
-                                    {member.socials.twitter && (
-                                        <a href={member.socials.twitter} className="w-8 h-8 md:w-10 md:h-10 bg-black text-white rounded-full flex items-center justify-center border-2 border-transparent hover:bg-white hover:text-black hover:border-black transition-colors cursor-none">
-                                            <Twitter size={16} className="w-4 h-4 md:w-5 md:h-5" />
-                                        </a>
-                                    )}
-                                </div>
-                            </motion.div>
-                        ))}
+                        <div className="mt-8 font-mono text-sm text-gray-500 font-bold border-t border-gray-800 pt-4 w-fit mx-auto">
+                            <span className="inline-block w-2 h-2 bg-red-500 rounded-full mr-2 animate-ping" />
+                            DEADLINE: JAN 5TH, 2026 @ MIDNIGHT
+                        </div>
                     </div>
                 </div>
             </div>

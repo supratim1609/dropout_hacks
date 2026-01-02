@@ -178,8 +178,8 @@ export const Navbar = () => {
                             </div>
 
                             <div className="mt-12 border-t-2 border-dashed border-gray-600 pt-8 text-center relative z-10 hover:scale-105 transition-transform">
-                                <button className="bg-[var(--color-comic-red)] text-white font-bold py-3 px-8 uppercase border-2 border-white shadow-[4px_4px_0_white] hover:shadow-none transition-all w-full cursor-none">
-                                    Register Now
+                                <button disabled className="bg-gray-800 text-gray-400 font-bold py-3 px-8 uppercase border-2 border-gray-600 w-full cursor-not-allowed">
+                                    Registrations Starting Soon
                                 </button>
                             </div>
                         </motion.div>

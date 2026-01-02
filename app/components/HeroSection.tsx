@@ -44,7 +44,7 @@ export const HeroSection = () => {
                         <span className="bg-[var(--color-comic-yellow)] text-black px-2 py-1 font-bold text-lg md:text-xl border-2 border-white shadow-[4px_4px_0px_0px_white] inline-block mb-4 rotate-[-2deg]">
                             KOLKATA'S MEGA HACKATHON
                         </span>
-                        <h1 className="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter uppercase mb-4 font-[family-name:var(--font-comic)]">
+                        <h1 className="text-4xl sm:text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter uppercase mb-4 font-[family-name:var(--font-comic)]">
                             <span className="block text-white" style={{ textShadow: "4px 4px 0px var(--color-comic-red)" }}>
                                 HACK INTO
                             </span>
@@ -68,18 +68,17 @@ export const HeroSection = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.4 }}
                     >
-                        <button className="group relative bg-[var(--color-comic-red)] text-white font-bold text-xl px-8 py-4 uppercase border-2 border-white hover:bg-white hover:text-[var(--color-comic-red)] transition-all shadow-[6px_6px_0px_0px_white] hover:shadow-[2px_2px_0px_0px_white] hover:translate-x-1 hover:translate-y-1 cursor-none">
-                            <span className="absolute -top-6 -right-6 bg-[var(--color-comic-yellow)] text-black text-sm font-black px-2 py-1 rotate-12 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-black shadow-[2px_2px_0_black]">THWIP!</span>
+                        <button disabled className="group relative bg-gray-900 text-gray-300 font-bold text-xl px-8 py-4 uppercase border-2 border-gray-600 cursor-not-allowed opacity-80">
                             <span className="flex items-center gap-2">
-                                Register Now <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                                Registrations Starting Soon ⏳
                             </span>
                         </button>
-                        <button className="group relative bg-transparent text-white font-bold text-xl px-8 py-4 uppercase border-2 border-white hover:bg-[var(--color-comic-blue)] hover:border-[var(--color-comic-blue)] hover:text-black transition-all cursor-none">
+                        <a href="https://discord.gg/hmU2TssPf9" target="_blank" rel="noopener noreferrer" className="group relative bg-transparent text-white font-bold text-xl px-8 py-4 uppercase border-2 border-white hover:bg-[var(--color-comic-blue)] hover:border-[var(--color-comic-blue)] hover:text-black transition-all cursor-none flex items-center justify-center">
                             <span className="absolute -bottom-6 -left-6 bg-[var(--color-comic-yellow)] text-black text-sm font-black px-2 py-1 -rotate-12 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-black shadow-[2px_2px_0_black]">ZIP!</span>
                             <span className="flex items-center gap-2">
                                 Discord <Terminal className="w-6 h-6" />
                             </span>
-                        </button>
+                        </a>
                     </motion.div>
                 </div>
 
