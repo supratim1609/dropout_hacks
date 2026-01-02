@@ -28,7 +28,7 @@ export const AboutSection = () => {
                         <span className="text-white text-stroke-black" style={{ WebkitTextStroke: "2px black" }}>DROPOUT HACKS?</span>
                     </h2>
                     <p className="text-xl font-bold font-[family-name:var(--font-body)] mb-6 border-l-4 border-black pl-4">
-                        "With great code comes great responsibility." — Uncle Ben (probably)
+                        "With great code comes great responsibility." - Uncle Ben (probably)
                     </p>
                     <p className="text-lg mb-6 font-medium">
                         Dropout Hacks isn't just another hackathon. It's a collision of universes.
@@ -51,12 +51,12 @@ export const AboutSection = () => {
                         <p className="uppercase font-bold text-sm">Hours of Creation</p>
                     </ComicPanel>
                     <ComicPanel variant="default" className="bg-black text-white transform -rotate-2 border-white">
-                        <h3 className="text-4xl font-black font-[family-name:var(--font-comic)] text-[var(--color-comic-red)]">500+</h3>
+                        <h3 className="text-4xl font-black font-[family-name:var(--font-comic)] text-[var(--color-comic-red)]">1000+</h3>
                         <p className="uppercase font-bold text-sm">Hackers Assembling</p>
                     </ComicPanel>
                     <ComicPanel variant="default" className="bg-[var(--color-comic-blue)] text-white transform -rotate-1 border-black">
-                        <h3 className="text-4xl font-black font-[family-name:var(--font-comic)]">₹1L+</h3>
-                        <p className="uppercase font-bold text-sm">Prize Pool</p>
+                        <h3 className="text-4xl font-black font-[family-name:var(--font-comic)]">₹ TBD</h3>
+                        <p className="uppercase font-bold text-sm">Cash Prize Pool</p>
                     </ComicPanel>
                     <ComicPanel variant="default" className="bg-white transform rotate-3">
                         <h3 className="text-4xl font-black font-[family-name:var(--font-comic)]">∞</h3>
