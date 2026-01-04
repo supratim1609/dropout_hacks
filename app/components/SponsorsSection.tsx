@@ -34,7 +34,7 @@ export const SponsorsSection = () => {
 
                         <p className="text-lg md:text-2xl font-bold font-[family-name:var(--font-body)] text-gray-800 max-w-2xl">
                             We are currently looking for visionary partners to join the multiverse. <br />
-                            <span className="text-[var(--color-comic-red)]">0 Sponsors Found</span> (Yet).
+                            <span className="text-[var(--color-comic-red)]">Alliance Channels Open.</span>
                         </p>
 
                         <div className="pt-8 w-full max-w-md">
