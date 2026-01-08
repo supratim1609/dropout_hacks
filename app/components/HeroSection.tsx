@@ -42,7 +42,7 @@ export const HeroSection = () => {
                         transition={{ duration: 0.5 }}
                     >
                         <span className="bg-[var(--color-comic-yellow)] text-black px-2 py-1 font-bold text-lg md:text-xl border-2 border-white shadow-[4px_4px_0px_0px_white] inline-block mb-4 rotate-[-2deg]">
-                            KOLKATA'S MEGA HACKATHON
+                            KOLKATA'S MEGA BUILDATHON
                         </span>
                         <h1 className="text-4xl sm:text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter uppercase mb-4 font-[family-name:var(--font-comic)]">
                             <span className="block text-white" style={{ textShadow: "4px 4px 0px var(--color-comic-red)" }}>

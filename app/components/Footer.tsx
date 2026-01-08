@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { DanglingSpidey } from "./DanglingSpidey";
 
 export const Footer = () => {
@@ -9,10 +10,16 @@ export const Footer = () => {
             {/* Dangling Spidey - Left Side */}
             <DanglingSpidey width={180} height={252} />
 
-            <div className="container mx-auto text-center relative z-10">
-                <h2 className="text-3xl font-black font-[family-name:var(--font-comic)] mb-4">
-                    DROPOUT HACKS
-                </h2>
+            <div className="container mx-auto text-center relative z-10 flex flex-col items-center">
+                <div className="mb-6 w-[200px] md:w-[250px]">
+                    <Image
+                        src="/logo.png"
+                        alt="Dropout Hacks"
+                        width={300}
+                        height={100}
+                        className="object-contain"
+                    />
+                </div>
                 <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-8 font-bold font-[family-name:var(--font-body)] w-full">
                     <a href="https://instagram.com/dropouthacks" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-comic-red)] cursor-none py-2">Instagram</a>
                     <a href="https://x.com/dropouthacks" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-comic-blue)] cursor-none py-2">X</a>

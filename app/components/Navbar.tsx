@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Home, Trophy, Calendar, Users, HelpCircle } from "lucide-react";
 import clsx from "clsx";
@@ -35,10 +36,14 @@ export const Navbar = () => {
                 {/* Logo - Pointer events auto to allow clicking */}
                 {/* Logo - Pointer events auto to allow clicking */}
                 <Link href="/" className="pointer-events-auto cursor-none">
-                    <div className="bg-black border-2 border-[var(--color-comic-red)] p-2 shadow-[4px_4px_0_white] transform -rotate-1 hover:rotate-2 transition-transform">
-                        <span className="text-xl font-black font-[family-name:var(--font-comic)] text-white tracking-wider">
-                            DROPOUT<span className="text-[var(--color-comic-red)]">HACKS</span>
-                        </span>
+                    <div className="transform -rotate-1 hover:rotate-2 transition-transform w-[180px]">
+                        <Image
+                            src="/logo.png"
+                            alt="Dropout Hacks"
+                            width={200}
+                            height={80}
+                            className="object-contain drop-shadow-[4px_4px_0_rgba(0,0,0,0.5)]"
+                        />
                     </div>
                 </Link>
 
