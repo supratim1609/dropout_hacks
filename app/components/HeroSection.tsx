@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Terminal } from "lucide-react";
 import { DanglingSpidey } from "./DanglingSpidey";
-import { CyberAimGame } from "./CyberAimGame";
+import { DateRevealCard } from "./DateRevealCard";
 
 export const HeroSection = () => {
     return (
@@ -83,8 +83,8 @@ export const HeroSection = () => {
                 </div>
 
                 {/* Right Column: Visual / Interactive */}
-                <div className="relative flex items-center justify-center min-h-[400px] md:min-h-[500px]">
-                    <CyberAimGame />
+                <div className="relative flex items-center justify-center min-h-[400px] md:min-h-[500px] hidden md:flex">
+                    <DateRevealCard />
                 </div>
             </div>
         </section>
