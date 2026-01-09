@@ -4,11 +4,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Terminal } from "lucide-react";
 import { DanglingSpidey } from "./DanglingSpidey";
-import { MysteryVault } from "./MysteryVault";
+import { CyberAimGame } from "./CyberAimGame";
 
 export const HeroSection = () => {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 px-4">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-36 pb-20 md:py-20 px-4">
             <DanglingSpidey className="hidden lg:block absolute right-10 -top-20 z-20 pointer-events-none" width={150} height={210} />
             {/* Background Elements */}
             <div className="absolute inset-0 bg-halftone z-0 pointer-events-none" />
@@ -41,7 +41,7 @@ export const HeroSection = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <span className="bg-[var(--color-comic-yellow)] text-black px-2 py-1 font-bold text-lg md:text-xl border-2 border-white shadow-[4px_4px_0px_0px_white] inline-block mb-4 rotate-[-2deg]">
+                        <span className="bg-[var(--color-comic-yellow)] text-black px-2 py-1 font-bold text-sm sm:text-lg md:text-xl border-2 border-white shadow-[2px_2px_0px_0px_white] md:shadow-[4px_4px_0px_0px_white] inline-block mb-6 mt-2 rotate-[-1deg] md:rotate-[-2deg]">
                             KOLKATA'S MEGA BUILDATHON
                         </span>
                         <h1 className="text-4xl sm:text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter uppercase mb-4 font-[family-name:var(--font-comic)]">
@@ -83,8 +83,8 @@ export const HeroSection = () => {
                 </div>
 
                 {/* Right Column: Visual / Interactive */}
-                <div className="relative hidden md:flex items-center justify-center min-h-[500px]">
-                    <MysteryVault />
+                <div className="relative flex items-center justify-center min-h-[400px] md:min-h-[500px]">
+                    <CyberAimGame />
                 </div>
             </div>
         </section>
