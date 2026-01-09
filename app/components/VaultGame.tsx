@@ -16,7 +16,7 @@ export const VaultGame = () => {
     const [direction, setDirection] = useState(1); // 1 = right, -1 = left
     const [speed, setSpeed] = useState(BASE_SPEED);
     const [targetZone, setTargetZone] = useState({ start: 40, width: 20 }); // Percentage
-    const requestRef = useRef<number>();
+    const requestRef = useRef<number | null>(null);
 
     // Game Loop
     const animate = () => {
