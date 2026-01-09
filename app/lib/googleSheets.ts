@@ -81,24 +81,20 @@ export async function getTeamData(): Promise<TeamMember[]> {
     }
 
     try {
-        const response = await fetch(SHEET_URL, { cache: "no-store" }); // Disable cache for instant updates
+        const response = await fetch(SHEET_URL, { cache: "no-store" });
         if (!response.ok) throw new Error("Failed to fetch CSV");
 
         const text = await response.text();
-        const rows = text.split("\n").slice(1); // Skip header
+        const rows = text.split("\n").slice(1);
+        const members: TeamMember[] = [];
 
-        return rows.map(row => {
-            // Check if row is empty or just commas
-            if (!row.trim() || row.replace(/,/g, '').trim() === '') return null;
+        for (const row of rows) {
+            if (!row.trim() || row.replace(/,/g, '').trim() === '') continue;
 
-            // Simple CSV split
-            // Format: Timestamp, Name, Photo, LinkedIn, GitHub, Instagram, Twitter, Role
-            const cols = row.split(",").map(c => c.trim().replace(/^"|"$/g, '')); // Remove quotes
+            const cols = row.split(",").map(c => c.trim().replace(/^"|"$/g, ''));
+            if (cols.length < 2) continue;
 
-            if (cols.length < 2) return null; // Skip empty rows
-
-            // Revised for structure: Timestamp, Name, Photo, LinkedIn, GitHub, Instagram, Twitter, Role
-            return {
+            members.push({
                 name: cols[1] || "Unknown",
                 image: cols[2]?.replace("/open?id=", "/uc?export=view&id=") || "",
                 socials: {
@@ -108,16 +104,27 @@ export async function getTeamData(): Promise<TeamMember[]> {
                     twitter: cols[6] || undefined,
                 },
                 role: cols[7] || "Member"
-            };
-        }).filter((item): item is TeamMember => item !== null).sort((a, b) => {
+            });
+        }
+
+        return members.sort((a, b) => {
             const roleA = a.role.toLowerCase();
             const roleB = b.role.toLowerCase();
 
-            // Organisers come first
-            if (roleA.includes("organiser") && !roleB.includes("organiser")) return -1;
-            if (!roleA.includes("organiser") && roleB.includes("organiser")) return 1;
+            const isOrgA = roleA.includes("organiser");
+            const isOrgB = roleB.includes("organiser");
 
-            return 0; // Keep original order otherwise
+            // Organisers always come first
+            if (isOrgA && !isOrgB) return -1;
+            if (!isOrgA && isOrgB) return 1;
+
+            // If both are organisers, keep their original order (stable sort)
+            // Or sort them alphabetically too if desired? User said "other than the organisers all will come in alphabetical order"
+            // implying organisers stay as is or have their own rule. Assuming keeping distinct.
+            if (isOrgA && isOrgB) return 0;
+
+            // If neither are organisers, sort alphabetically by name
+            return a.name.localeCompare(b.name);
         });
 
     } catch (error) {
