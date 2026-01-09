@@ -103,7 +103,7 @@ export const CyberAimGame = () => {
 
         // Haptic Feedback (Mobile)
         if (typeof window !== "undefined" && window.navigator && window.navigator.vibrate) {
-            window.navigator.vibrate(50);
+            window.navigator.vibrate(100);
         }
 
         // Visual Feedback
@@ -238,6 +238,7 @@ export const CyberAimGame = () => {
                             className={`absolute w-16 h-16 flex items-center justify-center group focus:outline-none`}
                             style={{ left: `${node.x}%`, top: `${node.y}%`, marginLeft: '-32px', marginTop: '-32px' }}
                             onClick={(e) => { e.stopPropagation(); hitNode(node.id, node.type); }}
+                            onPointerDown={(e) => { e.stopPropagation(); hitNode(node.id, node.type); }}
                         >
                             <div className="relative w-full h-full flex items-center justify-center transition-transform active:scale-90">
                                 {/* Outer Ring */}
