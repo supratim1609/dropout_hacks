@@ -4,10 +4,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ComicPanel } from "./ComicPanel";
 import { Trophy, Award, Gift } from "lucide-react";
+import { FloatingParticles } from "./FloatingParticles";
 
 export const PrizesSection = () => {
     return (
         <section className="py-20 px-4 bg-[var(--color-comic-dark)] relative overflow-hidden" id="prizes">
+            <FloatingParticles />
             {/* Glitchy Grid Background */}
             <div className="absolute inset-0 z-0 opacity-20"
                 style={{

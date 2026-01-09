@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
+import { FloatingParticles } from "./FloatingParticles";
 
 const faqs = [
     { q: "Is this event free?", a: "Yes. 100% free. No hidden fees, just pure hacking." },
@@ -20,7 +21,8 @@ export const FAQSection = () => {
     };
 
     return (
-        <section id="faq" className="py-20 px-4 bg-[var(--color-comic-dark)]">
+        <section id="faq" className="py-20 px-4 bg-[var(--color-comic-dark)] relative overflow-hidden">
+            <FloatingParticles />
             <div className="container mx-auto max-w-3xl">
                 <h2 className="text-5xl md:text-7xl font-black font-[family-name:var(--font-comic)] text-white text-center mb-12 text-shadow-comic">
                     FAQs
