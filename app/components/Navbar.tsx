@@ -4,14 +4,13 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Home, Trophy, Calendar, Users, HelpCircle, Heart } from "lucide-react";
+import { Menu, X, Home, Trophy, Calendar, Users, HelpCircle } from "lucide-react";
 import clsx from "clsx";
 
 const navLinks = [
     { name: "Home", icon: <Home className="w-6 h-6" />, href: "/" },
     { name: "Tracks", icon: <Users className="w-6 h-6" />, href: "/#tracks" },
     { name: "Team", icon: <Users className="w-6 h-6" />, href: "/team" },
-    { name: "Volunteer", icon: <Heart className="w-6 h-6" />, href: "/volunteer" },
     { name: "FAQ", icon: <HelpCircle className="w-6 h-6" />, href: "/#faq" },
 ];
 
