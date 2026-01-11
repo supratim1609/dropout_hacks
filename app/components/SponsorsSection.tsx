@@ -47,9 +47,11 @@ export const SponsorsSection = () => {
                             </div>
                         </div>
 
-                        <button className="bg-black text-white font-black px-6 py-3 md:px-10 md:py-5 uppercase hover:scale-105 transition-transform font-[family-name:var(--font-comic)] text-lg md:text-2xl shadow-[6px_6px_0_0_var(--color-comic-red)] hover:shadow-[2px_2px_0_0_var(--color-comic-red)] hover:translate-x-1 hover:translate-y-1 cursor-none border-2 border-transparent hover:border-black hover:bg-[var(--color-comic-yellow)] hover:text-black mt-4">
-                            Become a Sponsor
-                        </button>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc70_R3slKTVC6f5BTABlYvz6wBaNbEXaRV9r3I7kh0ZQpzew/viewform" target="_blank" rel="noopener noreferrer">
+                            <button className="bg-black text-white font-black px-6 py-3 md:px-10 md:py-5 uppercase hover:scale-105 transition-transform font-[family-name:var(--font-comic)] text-lg md:text-2xl shadow-[6px_6px_0_0_var(--color-comic-red)] hover:shadow-[2px_2px_0_0_var(--color-comic-red)] hover:translate-x-1 hover:translate-y-1 cursor-none border-2 border-transparent hover:border-black hover:bg-[var(--color-comic-yellow)] hover:text-black mt-4">
+                                Become a Sponsor
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>

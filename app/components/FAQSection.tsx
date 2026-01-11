@@ -6,7 +6,6 @@ import { Plus, Minus } from "lucide-react";
 import { FloatingParticles } from "./FloatingParticles";
 
 const faqs = [
-    { q: "Is this event free?", a: "Yes. 100% free. No hidden fees, just pure hacking." },
     { q: "Do I need a team?", a: "You can hack solo or in a team of up to 4. We'll have team building events if you're a lone wolf looking for a pack." },
     { q: "Will there be food?", a: "We will keep you fed and hydrated. Pizza, snacks, and caffeine in unlimited supply." },
     { q: "Can beginners join?", a: "Absolutely. We have a beginner track and mentors to help you level up." },
