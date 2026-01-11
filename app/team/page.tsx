@@ -3,6 +3,7 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { TeamGrid } from "../components/TeamGrid";
 import { getTeamData } from "../lib/googleSheets";
+import { FloatingParticles } from "../components/FloatingParticles";
 
 // Force dynamic rendering if we want real-time updates without building
 // export const dynamic = 'force-dynamic'; 
@@ -12,9 +13,10 @@ export default async function TeamPage() {
 
     return (
         <main className="min-h-screen bg-neutral-950 relative overflow-x-hidden selection:bg-[var(--color-comic-yellow)] selection:text-black">
+            <FloatingParticles />
             <Navbar />
 
-            <div className="pt-32 pb-20 container mx-auto px-4 min-h-screen">
+            <div className="pt-32 pb-20 container mx-auto px-4 min-h-screen relative z-10">
                 {/* Header */}
                 <div className="flex flex-col items-center justify-center text-center mb-20">
                     <div className="flex flex-col items-center animate-fade-in-up">
