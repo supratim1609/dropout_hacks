@@ -18,9 +18,8 @@ export const TeamGrid = ({ members }: TeamGridProps) => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1 }}
-                    className="h-full"
                 >
-                    <TeamMemberCard {...member} />
+                    <TeamMemberCard {...member} gender={member.gender} />
                 </motion.div>
             ))}
         </div>

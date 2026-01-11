@@ -42,10 +42,10 @@ export const DateRevealCard = () => {
                         <h2 className="text-gray-400 font-mono text-xs tracking-widest uppercase">Mission Date</h2>
                         {/* Redacted Date */}
                         <div className="relative mb-6 group/date">
-                            <h3 className="text-5xl font-black italic uppercase text-white drop-shadow-[2px_2px_0_var(--color-comic-blue)] tracking-tighter blur-md group-hover/date:blur-none transition-all duration-300 select-none">
-                                OCT 25-27
+                            <h3 className="text-5xl font-black italic uppercase text-white drop-shadow-[2px_2px_0_var(--color-comic-blue)] tracking-tighter blur-md select-none transition-all duration-300">
+                                MAR' 28-29 2026
                             </h3>
-                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none group-hover/date:opacity-0 transition-opacity duration-300">
+                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300">
                                 <span className="bg-red-600 text-white font-black text-xl px-2 rotate-[-10deg] border-2 border-white shadow-[2px_2px_0_black]">
                                     REDACTED
                                 </span>
