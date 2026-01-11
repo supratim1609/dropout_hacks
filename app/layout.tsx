@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import { Bangers, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
-import { WebShooter } from "./components/WebShooter";
-import { SpideyCursor } from "./components/SpideyCursor";
-import { Navbar } from "./components/Navbar";
+import { LayoutWrapper } from "./components/LayoutWrapper";
 
 const bangers = Bangers({
   weight: "400",
@@ -33,13 +31,10 @@ export default function RootLayout({
         className={clsx(
           bangers.variable,
           spaceGrotesk.variable,
-          "antialiased bg-[var(--color-comic-dark)] text-white min-h-screen selection:bg-[var(--color-comic-red)] selection:text-white cursor-none" // Added cursor-none
+          "antialiased bg-[var(--color-comic-dark)] text-white min-h-screen selection:bg-[var(--color-comic-red)] selection:text-white cursor-none"
         )}
       >
-        <SpideyCursor />
-        <WebShooter />
-        <Navbar />
-        {children}
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );

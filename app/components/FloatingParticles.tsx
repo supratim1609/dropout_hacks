@@ -10,12 +10,15 @@ interface Particle {
   speedY: number;
   opacity: number;
   color: string;
+  baseSpeedX: number;
+  baseSpeedY: number;
 }
 
 export const FloatingParticles = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number>(0);
+  const mouseRef = useRef<{ x: number; y: number }>({ x: -1000, y: -1000 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -31,6 +34,10 @@ export const FloatingParticles = () => {
       "#D000FF", // comic-purple (rare)
     ];
 
+    // Mouse repel settings
+    const repelRadius = 100; // pixels
+    const repelStrength = 3; // force multiplier
+
     // Set canvas size to parent
     const resizeCanvas = () => {
       const parent = canvas.parentElement;
@@ -42,18 +49,32 @@ export const FloatingParticles = () => {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
+    // Track mouse position
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseRef.current = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      };
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+
     // Initialize particles - more minimal
     const initParticles = () => {
       const particleCount = 55; // slightly more particles
       particlesRef.current = [];
 
       for (let i = 0; i < particleCount; i++) {
+        const speedX = (Math.random() - 0.5) * 0.2;
+        const speedY = Math.random() * -0.15 - 0.05;
         particlesRef.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          size: Math.random() * 1.5 + 0.5, // 0.5-2px (smaller)
-          speedX: (Math.random() - 0.5) * 0.2, // slower drift
-          speedY: Math.random() * -0.15 - 0.05, // slower upward
+          size: Math.random() * 2 + 1, // 1-3px (slightly bigger)
+          speedX: speedX,
+          speedY: speedY,
+          baseSpeedX: speedX,
+          baseSpeedY: speedY,
           opacity: Math.random() * 0.3 + 0.2, // 0.2-0.5 (more subtle)
           color: colors[Math.floor(Math.random() * colors.length)],
         });
@@ -66,6 +87,23 @@ export const FloatingParticles = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particlesRef.current.forEach((particle) => {
+        // Calculate distance from mouse
+        const dx = particle.x - mouseRef.current.x;
+        const dy = particle.y - mouseRef.current.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        // Apply repel effect if within radius
+        if (distance < repelRadius && distance > 0) {
+          const force = (repelRadius - distance) / repelRadius;
+          const angle = Math.atan2(dy, dx);
+          particle.speedX = particle.baseSpeedX + Math.cos(angle) * force * repelStrength;
+          particle.speedY = particle.baseSpeedY + Math.sin(angle) * force * repelStrength;
+        } else {
+          // Gradually return to base speed
+          particle.speedX += (particle.baseSpeedX - particle.speedX) * 0.05;
+          particle.speedY += (particle.baseSpeedY - particle.speedY) * 0.05;
+        }
+
         // Update position
         particle.x += particle.speedX;
         particle.y += particle.speedY;
@@ -97,6 +135,7 @@ export const FloatingParticles = () => {
     // Cleanup
     return () => {
       window.removeEventListener("resize", resizeCanvas);
+      window.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(animationRef.current);
     };
   }, []);
@@ -110,4 +149,3 @@ export const FloatingParticles = () => {
     />
   );
 };
-
