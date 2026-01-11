@@ -7,19 +7,35 @@ export const DateRevealCard = () => {
     const [email, setEmail] = useState("");
     const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus("submitting");
-        // Simulate API call
-        setTimeout(() => {
+
+        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw59_TuT1YA9hBaRT0WJoozlcvoQ3sUaJkfmjKNZ5Qxv95oNETU-MbchfZ8z20oY-Ot/exec";
+
+        try {
+            await fetch(WEB_APP_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email }),
+            });
+
+            // With no-cors we can't check response.ok, so we assume success if no network error
             setStatus("success");
             setEmail("");
-        }, 1500);
+        } catch (error) {
+            console.error("Error submitting email:", error);
+            // Optionally set error state here, but for now just log it
+            setStatus("idle");
+        }
     };
 
     return (
         <div
-            className="relative w-[350px] h-[520px] perspective-1000 group cursor-default"
+            className="relative w-[320px] h-[420px] perspective-1000 group cursor-default"
         >
             <motion.div
                 className="w-full h-full relative preserve-3d transition-all duration-500 ease-out transform group-hover:rotate-y-6 group-hover:rotate-x-6"
@@ -54,6 +70,7 @@ export const DateRevealCard = () => {
 
                         {/* Auth Buttons */}
                         <div className="w-full relative space-y-4">
+                            {/* 
                             <button
                                 type="button"
                                 onClick={() => setStatus("submitting")} // Placeholder
@@ -73,6 +90,7 @@ export const DateRevealCard = () => {
                                 <span className="text-[10px] font-mono uppercase">OR</span>
                                 <div className="h-px bg-gray-700 flex-1" />
                             </div>
+                            */}
 
                             <AnimatePresence mode="wait">
                                 {status === "success" ? (
