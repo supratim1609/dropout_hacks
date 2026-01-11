@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ComicPanel } from "./ComicPanel";
 import { Brain, Cloud, Code, Globe, Shield, Zap } from "lucide-react";
+import { FloatingParticles } from "./FloatingParticles";
 
 const tracks = [
     {
@@ -52,7 +53,8 @@ const tracks = [
 
 export const TracksSection = () => {
     return (
-        <section id="tracks" className="py-20 px-4 relative bg-[var(--color-comic-dark)]">
+        <section id="tracks" className="py-20 px-4 relative bg-[var(--color-comic-dark)] overflow-hidden">
+            <FloatingParticles />
             {/* Section Header */}
             <div className="container mx-auto mb-16 text-center">
                 <motion.h2

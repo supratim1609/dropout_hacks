@@ -3,10 +3,12 @@
 import React from "react";
 import Image from "next/image";
 import { DanglingSpidey } from "./DanglingSpidey";
+import { FloatingParticles } from "./FloatingParticles";
 
 export const Footer = () => {
     return (
         <footer className="bg-black text-white py-12 border-t-4 border-[var(--color-comic-blue)] relative overflow-hidden">
+            <FloatingParticles />
             {/* Dangling Spidey - Left Side */}
             <DanglingSpidey width={180} height={252} />
 
