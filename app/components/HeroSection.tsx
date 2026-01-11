@@ -11,6 +11,7 @@ export const HeroSection = () => {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-36 pb-20 md:py-20 px-4">
             <FloatingParticles />
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-36 pb-20 md:py-20 px-8 md:px-16 lg:px-24">
             <DanglingSpidey className="hidden lg:block absolute right-10 -top-20 z-20 pointer-events-none" width={150} height={210} />
             {/* Background Elements */}
             <div className="absolute inset-0 bg-halftone z-0 pointer-events-none" />

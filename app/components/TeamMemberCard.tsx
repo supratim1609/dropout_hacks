@@ -15,13 +15,20 @@ interface TeamMemberProps {
         twitter?: string;
         instagram?: string;
     };
+    gender?: string;
 }
 
-export const TeamMemberCard = ({ name, role, image, socials }: TeamMemberProps) => {
+export const TeamMemberCard = ({ name, role, image, socials, gender }: TeamMemberProps) => {
+    // Determine glow color based on gender: F = Red, M (or other) = Blue
+    const glowColor = gender === 'F' ? 'var(--color-comic-red)' : 'var(--color-comic-blue)';
+
     return (
         <motion.div
-            className="group relative w-full h-full flex flex-col bg-black border-2 border-white shadow-[4px_4px_0_var(--color-comic-dark)] hover:shadow-[8px_8px_0_var(--color-comic-red)] transition-shadow duration-300"
-            whileHover={{ y: -5 }}
+            className="group relative w-full h-full flex flex-col bg-black border-2 border-white shadow-[4px_4px_0_var(--color-comic-dark)] transition-shadow duration-300"
+            whileHover={{
+                y: -5,
+                boxShadow: `8px 8px 0 ${glowColor}`
+            }}
         >
             {/* Image Container */}
             <div className="relative aspect-[4/5] w-full overflow-hidden border-b-2 border-white grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-500">

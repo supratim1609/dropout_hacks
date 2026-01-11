@@ -19,7 +19,7 @@ export const DateRevealCard = () => {
 
     return (
         <div
-            className="relative w-[350px] h-[450px] perspective-1000 group cursor-default"
+            className="relative w-[350px] h-[520px] perspective-1000 group cursor-default"
         >
             <motion.div
                 className="w-full h-full relative preserve-3d transition-all duration-500 ease-out transform group-hover:rotate-y-6 group-hover:rotate-x-6"
@@ -38,14 +38,14 @@ export const DateRevealCard = () => {
                     </div>
 
                     {/* Central Content */}
-                    <div className="z-10 flex flex-col items-center w-full gap-2">
+                    <div className="z-10 flex flex-col items-center w-full gap-4">
                         <h2 className="text-gray-400 font-mono text-xs tracking-widest uppercase">Mission Date</h2>
                         {/* Redacted Date */}
                         <div className="relative mb-6 group/date">
-                            <h3 className="text-5xl font-black italic uppercase text-white drop-shadow-[2px_2px_0_var(--color-comic-blue)] tracking-tighter blur-md group-hover/date:blur-none transition-all duration-300 select-none">
-                                OCT 25-27
+                            <h3 className="text-5xl font-black italic uppercase text-white drop-shadow-[2px_2px_0_var(--color-comic-blue)] tracking-tighter blur-md select-none transition-all duration-300">
+                                MAR' 28-29 2026
                             </h3>
-                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none group-hover/date:opacity-0 transition-opacity duration-300">
+                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300">
                                 <span className="bg-red-600 text-white font-black text-xl px-2 rotate-[-10deg] border-2 border-white shadow-[2px_2px_0_black]">
                                     REDACTED
                                 </span>
@@ -53,7 +53,7 @@ export const DateRevealCard = () => {
                         </div>
 
                         {/* Auth Buttons */}
-                        <div className="w-full relative space-y-3">
+                        <div className="w-full relative space-y-4">
                             <button
                                 type="button"
                                 onClick={() => setStatus("submitting")} // Placeholder
@@ -93,7 +93,7 @@ export const DateRevealCard = () => {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -10 }}
                                         onSubmit={handleSubmit}
-                                        className="space-y-3"
+                                        className="space-y-4"
                                     >
                                         <div className="space-y-1">
                                             <input
@@ -102,7 +102,7 @@ export const DateRevealCard = () => {
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
                                                 placeholder="enter@multiverse.com"
-                                                className="w-full bg-gray-900 border-2 border-gray-700 text-white px-4 py-2.5 font-mono text-sm focus:border-[var(--color-comic-blue)] focus:outline-none transition-colors placeholder:text-gray-700"
+                                                className="w-full bg-gray-900 border-2 border-gray-700 text-white px-4 py-2.5 font-mono text-sm focus:border-[var(--color-comic-blue)] focus:outline-none transition-colors placeholder:text-gray-500"
                                             />
                                         </div>
                                         <button
@@ -123,7 +123,7 @@ export const DateRevealCard = () => {
                     </div>
 
                     {/* Corner Accents */}
-                    <div className="absolute bottom-4 right-4 text-[10px] font-mono text-gray-500">
+                    <div className="absolute bottom-4 left-4 text-[10px] font-mono text-gray-500">
                         AUTH_REQ
                     </div>
                     <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-[var(--color-comic-blue)]" />

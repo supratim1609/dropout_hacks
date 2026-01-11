@@ -8,6 +8,7 @@ export interface TeamMember {
         twitter?: string;
         instagram?: string;
     };
+    gender?: string;
 }
 
 // Fallback data in case the sheet fails or isn't configured
@@ -103,7 +104,8 @@ export async function getTeamData(): Promise<TeamMember[]> {
                     instagram: cols[5] || undefined,
                     twitter: cols[6] || undefined,
                 },
-                role: cols[7] || "Member"
+                role: cols[7] || "Member",
+                gender: cols[8] || "M" // Default to M if missing, or handle undefined
             });
         }
 
