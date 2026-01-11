@@ -46,7 +46,13 @@ export const LoadingScreen = ({ children }: { children: React.ReactNode }) => {
         const radians = (angle * Math.PI) / 180;
         const endX = centerX + Math.cos(radians) * maxRadius;
         const endY = centerY + Math.sin(radians) * maxRadius;
-        return { x1: centerX, y1: centerY, x2: endX, y2: endY, delay: i * 0.03 };
+        return {
+            x1: centerX,
+            y1: centerY,
+            x2: parseFloat(endX.toFixed(3)),
+            y2: parseFloat(endY.toFixed(3)),
+            delay: i * 0.03
+        };
     });
 
     // Generate spiral ring paths
@@ -61,7 +67,7 @@ export const LoadingScreen = ({ children }: { children: React.ReactNode }) => {
             const waveRadius = radius + Math.sin(i * 0.8) * 5;
             const x = centerX + Math.cos(radians) * waveRadius;
             const y = centerY + Math.sin(radians) * waveRadius;
-            points.push(`${i === 0 ? 'M' : 'L'} ${x} ${y}`);
+            points.push(`${i === 0 ? 'M' : 'L'} ${x.toFixed(3)} ${y.toFixed(3)}`);
         }
 
         return { d: points.join(' ') + ' Z', delay: 0.4 + ringIndex * 0.15 };
