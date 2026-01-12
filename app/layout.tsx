@@ -18,6 +18,33 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "HACK INTO THE MULTIVERSE | Dropout Hacks",
   description: "Join the ultimate Spider-Verse themed hackathon in Kolkata. Code, build, and save the multiverse.",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
+  openGraph: {
+    title: "HACK INTO THE MULTIVERSE | Dropout Hacks",
+    description: "Join the ultimate Spider-Verse themed hackathon in Kolkata. Code, build, and save the multiverse.",
+    url: "https://dropouthacks.tech",
+    siteName: "Dropout Hacks",
+    images: [
+      {
+        url: "/logo.png",
+        width: 800,
+        height: 800,
+        alt: "Dropout Hacks Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "HACK INTO THE MULTIVERSE | Dropout Hacks",
+    description: "Join the ultimate Spider-Verse themed hackathon in Kolkata. Code, build, and save the multiverse.",
+    images: ["/logo.png"],
+  },
 };
 
 export default function RootLayout({
