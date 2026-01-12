@@ -3,6 +3,8 @@ import { Bangers, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
 import { LayoutWrapper } from "./components/LayoutWrapper";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const bangers = Bangers({
   weight: "400",
@@ -63,6 +65,8 @@ export default function RootLayout({
         )}
       >
         <LayoutWrapper>{children}</LayoutWrapper>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
