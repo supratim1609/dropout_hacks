@@ -16,6 +16,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://dropouthacks.tech"),
   title: "HACK INTO THE MULTIVERSE | Dropout Hacks",
   description: "Join the ultimate Spider-Verse themed hackathon in Kolkata. Code, build, and save the multiverse.",
   icons: {
