@@ -45,7 +45,7 @@ export const TeamSphere = ({ members }: TeamSphereProps) => {
     const isHoveringRef = useRef(false); // Track if user is hovering an item
     const previousMouseRef = useRef({ x: 0, y: 0 });
     const momentumRef = useRef({ x: 0.001, y: 0.001 });
-    const requestRef = useRef<number>();
+    const requestRef = useRef<number | null>(null);
 
     // Target radius (responsive)
     const targetRadiusRef = useRef(250);
