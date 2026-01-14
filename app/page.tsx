@@ -1,5 +1,3 @@
-"use client";
-
 import { Navbar } from "./components/Navbar";
 import { HeroSection } from "./components/HeroSection";
 import { AboutSection } from "./components/AboutSection";
@@ -11,9 +9,18 @@ import { FAQSection } from "./components/FAQSection";
 import { Footer } from "./components/Footer";
 import { WebShooter } from "./components/WebShooter";
 import { OrganisersMessage } from "./components/OrganisersMessage";
+import { getTeamData } from "./lib/googleSheets";
 import { DailyBugleModal } from "./components/DailyBugleModal";
 
-export default function Home() {
+// Force dynamic rendering if we want real-time updates without building
+export const dynamic = 'force-dynamic';
+
+export default async function Home() {
+  const allMembers = await getTeamData();
+
+  // Pass all members to the Team Sphere
+  const teamMembers = allMembers;
+
   return (
     <main className="min-h-screen bg-[var(--color-comic-dark)] overflow-x-hidden selection:bg-[var(--color-comic-red)] selection:text-white relative">
       <DailyBugleModal />
@@ -26,7 +33,7 @@ export default function Home() {
       <PrizesSection />
       <SponsorsSection />
       <FAQSection />
-      <OrganisersMessage />
+      <OrganisersMessage members={teamMembers} />
       <Footer />
     </main>
   );
