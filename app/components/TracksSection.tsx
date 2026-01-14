@@ -51,6 +51,50 @@ const tracks = [
     },
 ];
 
+const DynamicBorderText = ({ text, variant }: { text: string; variant: string }) => {
+    // Map variant to hex colors for the glow/border
+    const colors: Record<string, string> = {
+        primary: "#ff0000", // Red
+        purple: "#a855f7",
+        blue: "#3b82f6",
+        yellow: "#eab308",
+        default: "#ffffff",
+    };
+
+    const shadowColor = colors[variant] || colors.default;
+
+    return (
+        <div className="flex flex-wrap gap-[1px] mb-2 pointer-events-none">
+            {text.split("").map((char, i) => {
+                if (char === " ") return <span key={i} className="w-2" />;
+
+                return (
+                    <motion.span
+                        key={i}
+                        className="font-black font-[family-name:var(--font-comic)] text-3xl md:text-4xl uppercase select-none relative z-10"
+                        style={{
+                            WebkitTextStroke: "1px black",
+                            color: "white",
+                            textShadow: `3px 3px 0px ${shadowColor}`,
+                        }}
+                        animate={{
+                            y: [0, -3, 0]
+                        }}
+                        transition={{
+                            duration: 2.5,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: i * 0.1, // Smooth wave
+                        }}
+                    >
+                        {char}
+                    </motion.span>
+                );
+            })}
+        </div>
+    );
+};
+
 export const TracksSection = () => {
     return (
         <section id="tracks" className="py-20 px-4 relative bg-[var(--color-comic-dark)] overflow-hidden">
@@ -88,9 +132,10 @@ export const TracksSection = () => {
                             <div className={`p-3 rounded-none border-2 border-black shadow-[4px_4px_0px_0px_black] bg-white text-black`}>
                                 {track.icon}
                             </div>
-                            <h3 className="text-3xl font-bold font-[family-name:var(--font-comic)] uppercase">
-                                {track.title}
-                            </h3>
+
+                            {/* Dynamic Text Component */}
+                            <DynamicBorderText text={track.title} variant={track.variant} />
+
                             <p className="text-gray-300 font-[family-name:var(--font-body)]">
                                 {track.description}
                             </p>
