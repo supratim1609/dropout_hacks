@@ -1,3 +1,5 @@
+import { GoogleSpreadsheet } from "google-spreadsheet";
+
 export interface TeamMember {
     name: string;
     role: string;
@@ -95,9 +97,26 @@ export async function getTeamData(): Promise<TeamMember[]> {
             const cols = row.split(",").map(c => c.trim().replace(/^"|"$/g, ''));
             if (cols.length < 2) continue;
 
+            let imageUrl = "";
+            const rawImageCol = cols[2];
+            if (rawImageCol) {
+                // Robust Google Drive ID extraction
+                // Matches /file/d/ID/view... or id=ID...
+                // Handles usp=drive_link, usp=sharing, etc.
+                const idMatch = rawImageCol.match(/\/d\/([a-zA-Z0-9_-]+)|\?id=([a-zA-Z0-9_-]+)/);
+
+                if (idMatch) {
+                    const id = idMatch[1] || idMatch[2];
+                    // Using thumbnail endpoint for better reliability and performance
+                    imageUrl = `https://drive.google.com/thumbnail?id=${id}&sz=w500`;
+                } else if (rawImageCol.startsWith("http")) {
+                    imageUrl = rawImageCol; // Use raw URL if it's not a standard Drive link pattern
+                }
+            }
+
             members.push({
                 name: cols[1] || "Unknown",
-                image: cols[2]?.replace("/open?id=", "/uc?export=view&id=") || "",
+                image: imageUrl,
                 socials: {
                     linkedin: cols[3] || undefined,
                     github: cols[4] || undefined,
@@ -105,11 +124,27 @@ export async function getTeamData(): Promise<TeamMember[]> {
                     twitter: cols[6] || undefined,
                 },
                 role: cols[7] || "Member",
-                gender: cols[8] || "M" // Default to M if missing, or handle undefined
+                gender: cols[8] || "M"
             });
         }
 
-        return members.sort((a, b) => {
+        // Filter out "See All" button artifacts or invalid entries
+        const validMembers = members.filter(m => {
+            const lowerName = (m.name || "").toLowerCase();
+            const lowerRole = (m.role || "").toLowerCase();
+            const lowerImg = (m.image || "").toLowerCase();
+
+            // Explicitly exclude known artifacts
+            if (lowerName.includes("see all") || lowerName.includes("view all")) return false;
+            if (lowerRole.includes("button") || lowerRole.includes("action")) return false;
+
+            // Check for specific artifact images if needed
+            if (lowerImg.includes("arrow")) return false;
+
+            return m.name && m.name !== "Unknown";
+        });
+
+        return validMembers.sort((a, b) => {
             const roleA = a.role.toLowerCase();
             const roleB = b.role.toLowerCase();
 
@@ -120,9 +155,6 @@ export async function getTeamData(): Promise<TeamMember[]> {
             if (isOrgA && !isOrgB) return -1;
             if (!isOrgA && isOrgB) return 1;
 
-            // If both are organisers, keep their original order (stable sort)
-            // Or sort them alphabetically too if desired? User said "other than the organisers all will come in alphabetical order"
-            // implying organisers stay as is or have their own rule. Assuming keeping distinct.
             if (isOrgA && isOrgB) return 0;
 
             // If neither are organisers, sort alphabetically by name
