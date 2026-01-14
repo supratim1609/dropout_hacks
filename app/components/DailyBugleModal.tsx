@@ -27,7 +27,7 @@ export const DailyBugleModal = () => {
     return (
         <AnimatePresence>
             {isVisible && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+                <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4">
                     {/* Backdrop */}
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -60,7 +60,7 @@ export const DailyBugleModal = () => {
                             {/* Close Button - Responsive Position */}
                             <button
                                 onClick={handleClose}
-                                className="absolute -top-3 -right-3 md:-top-6 md:-right-6 bg-red-600 text-white p-1.5 md:p-2 border-2 border-black shadow-[2px_2px_0_black] md:shadow-[4px_4px_0_black] hover:scale-110 transition-transform z-20"
+                                className="absolute top-2 right-2 md:-top-5 md:-right-5 bg-red-600 text-white p-1.5 md:p-2 border-2 border-black shadow-[2px_2px_0_black] md:shadow-[4px_4px_0_black] hover:scale-110 transition-transform z-20"
                             >
                                 <X size={20} strokeWidth={3} className="md:w-6 md:h-6" />
                             </button>
