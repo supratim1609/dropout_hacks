@@ -11,10 +11,12 @@ import { FAQSection } from "./components/FAQSection";
 import { Footer } from "./components/Footer";
 import { WebShooter } from "./components/WebShooter";
 import { OrganisersMessage } from "./components/OrganisersMessage";
+import { DailyBugleModal } from "./components/DailyBugleModal";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-[var(--color-comic-dark)] overflow-x-hidden selection:bg-[var(--color-comic-red)] selection:text-white relative">
+      <DailyBugleModal />
       <WebShooter />
       <Navbar />
       <HeroSection />
