@@ -13,6 +13,18 @@ export interface TeamMember {
     gender?: string;
 }
 
+function getGoogleDriveDirectLink(url: string | undefined): string {
+    if (!url) return "";
+    // Matches standard Google Drive File IDs (alphanumeric, -, _, usually 33 chars long)
+    // Works for:
+    // https://drive.google.com/file/d/FILE_ID/view
+    // https://drive.google.com/open?id=FILE_ID
+    // https://drive.google.com/uc?id=FILE_ID
+    const idRegex = /[-\w]{25,}/;
+    const match = url.match(idRegex);
+    return match ? `https://drive.google.com/uc?export=view&id=${match[0]}` : url;
+}
+
 // Fallback data in case the sheet fails or isn't configured
 const FALLBACK_MEMBERS: TeamMember[] = [
     {

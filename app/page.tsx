@@ -10,6 +10,7 @@ import { Footer } from "./components/Footer";
 import { WebShooter } from "./components/WebShooter";
 import { OrganisersMessage } from "./components/OrganisersMessage";
 import { getTeamData } from "./lib/googleSheets";
+import { DailyBugleModal } from "./components/DailyBugleModal";
 
 // Force dynamic rendering if we want real-time updates without building
 export const dynamic = 'force-dynamic';
@@ -22,6 +23,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-[var(--color-comic-dark)] overflow-x-hidden selection:bg-[var(--color-comic-red)] selection:text-white relative">
+      <DailyBugleModal />
       <WebShooter />
       <Navbar />
       <HeroSection />

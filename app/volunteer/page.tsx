@@ -7,50 +7,24 @@ import { TeamGrid } from "../components/TeamGrid";
 // Dummy data for volunteer preview
 const dummyVolunteers = [
     {
-        name: "Peter Parker",
-        role: "Neighborhood Watch",
-        image: "/logo.png", // Using local asset as placeholder
+        name: "Sneha Debnath",
+        role: "Volunteer",
+        image: "/team/sneha.jpg",
         socials: {
-            github: "https://github.com",
-            twitter: "https://x.com"
-        },
-        gender: "M"
-    },
-    {
-        name: "Miles Morales",
-        role: "Web Spinner",
-        image: "/logo.png",
-        socials: {
-            instagram: "https://instagram.com"
-        },
-        gender: "M"
-    },
-    {
-        name: "Gwen Stacy",
-        role: "Drummer",
-        image: "/logo.png",
-        socials: {
-            linkedin: "https://linkedin.com"
+            github: "https://github.com/Snehacseaiml",
+            linkedin: "https://www.linkedin.com/in/sneha-debnath-71b635289?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
         },
         gender: "F"
     },
     {
-        name: "Miguel O'Hara",
-        role: "Timeline Security",
-        image: "/logo.png",
-        gender: "M"
-    },
-    {
-        name: "Hobie Brown",
-        role: "Anarchist",
-        image: "/logo.png",
-        gender: "M"
-    },
-    {
-        name: "Pavitr Prabhakar",
-        role: "Chai Enthusiast",
-        image: "/logo.png",
-        gender: "M"
+        name: "Sarika Shaw",
+        role: "Volunteer",
+        image: "/team/sarika.jpg",
+        socials: {
+            github: "https://github.com/shawsarika14",
+            linkedin: "https://www.linkedin.com/in/sarika-shaw-706424355?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+        },
+        gender: "F"
     }
 ];
 
@@ -67,7 +41,7 @@ export default function VolunteerPage() {
                         <span className="bg-[var(--color-comic-yellow)] text-black px-4 py-1 font-bold text-lg md:text-xl border-4 border-black shadow-[4px_4px_0_white] inline-block -rotate-2 mb-6">
                             MEET THE BACKBONE
                         </span>
-                        <h1 className="text-5xl md:text-8xl font-black text-white font-[family-name:var(--font-comic)] uppercase tracking-tighter">
+                        <h1 className="text-5xl md:text-8xl font-black text-white font-[family-name:var(--font-comic)] uppercase tracking-wider">
                             The <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-comic-blue)] to-[var(--color-comic-purple)] drop-shadow-[4px_4px_0_var(--color-comic-dark)] pb-2 pr-4">Weavers</span>
                         </h1>
                     </div>
@@ -76,11 +50,7 @@ export default function VolunteerPage() {
                 {/* Team Grid with Dummy Data */}
                 <TeamGrid members={dummyVolunteers} />
 
-                {/* Call to Action / Info */}
-                <div className="mt-20 flex flex-col items-center justify-center text-white/60 text-xl font-bold font-[family-name:var(--font-comic)] border-dashed border-2 border-white/20 p-8 rounded-lg bg-black/40 backdrop-blur-sm max-w-2xl mx-auto text-center">
-                    <p className="mb-2">WANT TO JOIN THE SQUAD?</p>
-                    <p className="text-base font-normal opacity-80">Volunteer applications are currently closed. Check back soon!</p>
-                </div>
+
 
             </div>
             <Footer />
