@@ -1,8 +1,36 @@
-"use client";
-
 import React from "react";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Code of Conduct & Rules",
+    description: "Read the Code of Conduct and rules for Dropout Hacks hackathon. We are committed to providing a harassment-free, inclusive, and welcoming environment for all participants in Kolkata's premier tech event.",
+    keywords: [
+        "dropout hacks rules",
+        "hackathon code of conduct",
+        "dropout hacks guidelines",
+        "hackathon rules kolkata",
+        "tech event conduct",
+        "inclusive hackathon"
+    ],
+    openGraph: {
+        title: "Code of Conduct & Rules | Dropout Hacks",
+        description: "Read the Code of Conduct and rules for Dropout Hacks hackathon. Creating an inclusive and welcoming environment for all.",
+        url: "https://dropouthacks.tech/rules",
+        images: [
+            {
+                url: "/opengraph-image.png",
+                width: 1200,
+                height: 630,
+                alt: "Dropout Hacks Code of Conduct",
+            },
+        ],
+    },
+    alternates: {
+        canonical: "https://dropouthacks.tech/rules",
+    },
+};
 
 export default function RulesPage() {
     return (

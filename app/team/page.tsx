@@ -4,6 +4,36 @@ import { Footer } from "../components/Footer";
 import { TeamGrid } from "../components/TeamGrid";
 import { getTeamData } from "../lib/googleSheets";
 import { FloatingParticles } from "../components/FloatingParticles";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Meet The Team - The Architects",
+    description: "Meet the brilliant minds behind Dropout Hacks - Kolkata's premier Spider-Verse themed hackathon. Our dedicated team of organizers, mentors, and tech enthusiasts working to create an unforgettable experience.",
+    keywords: [
+        "dropout hacks team",
+        "hackathon organizers kolkata",
+        "dropout hacks organizers",
+        "tech event team",
+        "hackathon mentors",
+        "kolkata tech community"
+    ],
+    openGraph: {
+        title: "Meet The Team - The Architects | Dropout Hacks",
+        description: "Meet the brilliant minds behind Dropout Hacks - Kolkata's premier Spider-Verse themed hackathon.",
+        url: "https://dropouthacks.tech/team",
+        images: [
+            {
+                url: "/opengraph-image.png",
+                width: 1200,
+                height: 630,
+                alt: "Dropout Hacks Team",
+            },
+        ],
+    },
+    alternates: {
+        canonical: "https://dropouthacks.tech/team",
+    },
+};
 
 // Force dynamic rendering if we want real-time updates without building
 // export const dynamic = 'force-dynamic'; 
