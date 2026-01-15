@@ -60,6 +60,7 @@ export const DailyBugleModal = () => {
                             {/* Close Button - Responsive Position */}
                             <button
                                 onClick={handleClose}
+                                aria-label="Close daily bugle modal"
                                 className="absolute top-2 right-2 md:-top-5 md:-right-5 bg-red-600 text-white p-1.5 md:p-2 border-2 border-black shadow-[2px_2px_0_black] md:shadow-[4px_4px_0_black] hover:scale-110 transition-transform z-20"
                             >
                                 <X size={20} strokeWidth={3} className="md:w-6 md:h-6" />
@@ -129,6 +130,7 @@ export const DailyBugleModal = () => {
                             <div className="mt-4 md:mt-6 pt-2 border-t-2 border-black text-center">
                                 <button
                                     onClick={handleClose}
+                                    aria-label="Close daily bugle modal"
                                     className="bg-black text-white font-bold uppercase px-6 py-3 text-sm md:text-base hover:bg-red-600 transition-colors w-full shadow-[2px_2px_0_rgba(0,0,0,0.3)] active:translate-y-[2px] active:shadow-none"
                                 >
                                     I'M READY (CLOSE)

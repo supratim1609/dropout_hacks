@@ -51,6 +51,7 @@ export const Navbar = () => {
                 {/* Hamburger Button */}
                 <button
                     onClick={toggleMenu}
+                    aria-label="Toggle navigation menu"
                     className="pointer-events-auto bg-[var(--color-comic-blue)] text-black border-2 border-black p-2 hover:bg-white transition-colors shadow-[4px_4px_0_black] cursor-none"
                 >
                     {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}

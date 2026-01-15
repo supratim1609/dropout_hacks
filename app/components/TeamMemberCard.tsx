@@ -62,17 +62,17 @@ export const TeamMemberCard = ({ name, role, image, socials, gender }: TeamMembe
                 {/* Socials */}
                 <div className="flex items-center gap-4">
                     {socials?.github && (
-                        <a href={socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:scale-110 transition-all">
+                        <a href={socials.github} target="_blank" rel="noopener noreferrer" aria-label={`${name}'s GitHub profile`} className="text-gray-400 hover:text-white hover:scale-110 transition-all">
                             <Github className="w-5 h-5" />
                         </a>
                     )}
                     {socials?.linkedin && (
-                        <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#0077b5] hover:scale-110 transition-all">
+                        <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" aria-label={`${name}'s LinkedIn profile`} className="text-gray-400 hover:text-[#0077b5] hover:scale-110 transition-all">
                             <Linkedin className="w-5 h-5" />
                         </a>
                     )}
                     {socials?.twitter && (
-                        <a href={socials.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:scale-110 transition-all">
+                        <a href={socials.twitter} target="_blank" rel="noopener noreferrer" aria-label={`${name}'s Twitter profile`} className="text-gray-400 hover:text-white hover:scale-110 transition-all">
                             {/* X Logo */}
                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -80,7 +80,7 @@ export const TeamMemberCard = ({ name, role, image, socials, gender }: TeamMembe
                         </a>
                     )}
                     {socials?.instagram && (
-                        <a href={socials.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#E1306C] hover:scale-110 transition-all">
+                        <a href={socials.instagram} target="_blank" rel="noopener noreferrer" aria-label={`${name}'s Instagram profile`} className="text-gray-400 hover:text-[#E1306C] hover:scale-110 transition-all">
                             <Instagram className="w-5 h-5" />
                         </a>
                     )}

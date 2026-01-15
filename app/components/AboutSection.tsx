@@ -51,7 +51,7 @@ export const AboutSection = () => {
                         <p className="uppercase font-bold text-sm">Hours of Creation</p>
                     </ComicPanel>
                     <ComicPanel variant="default" className="bg-black text-white transform -rotate-2 border-white">
-                        <h3 className="text-4xl font-black font-[family-name:var(--font-comic)] text-[var(--color-comic-red)]">1000+</h3>
+                        <h3 className="text-4xl font-black font-[family-name:var(--font-comic)] text-[var(--color-comic-red)]">1500+</h3>
                         <p className="uppercase font-bold text-sm">Hackers Assembling</p>
                     </ComicPanel>
                     <ComicPanel variant="default" className="bg-[var(--color-comic-blue)] text-white transform -rotate-1 border-black">
