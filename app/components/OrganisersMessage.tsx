@@ -18,7 +18,7 @@ export const OrganisersMessage = ({ members = [] }: OrganisersMessageProps) => {
                         INCOMING TRANSMISSION
                     </div>
                     <h2 className="text-4xl md:text-6xl font-black font-[family-name:var(--font-comic)] uppercase leading-none">
-                        FROM THE <span className="text-[var(--color-comic-red)]">ARCHITECTS</span>
+                        FROM THE <span className="text-[var(--color-comic-red)] tracking-[0.2em]">ARCHITECTS</span>
                     </h2>
                 </div>
 

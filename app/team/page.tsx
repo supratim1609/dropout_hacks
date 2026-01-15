@@ -27,7 +27,7 @@ export default async function TeamPage() {
                             MEET THE SQUAD
                         </span>
                         <h1 className="text-5xl md:text-8xl font-black text-white font-[family-name:var(--font-comic)] uppercase tracking-tighter">
-                            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-comic-blue)] to-[var(--color-comic-purple)] drop-shadow-[4px_4px_0_var(--color-comic-dark)] pb-2 pr-4">Architects</span>
+                            <span className="italic tracking-[0.15em]">The</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 via-pink-400 to-red-400 drop-shadow-[4px_4px_0_var(--color-comic-dark)] pb-2 tracking-[0.15em] ml-8">Architects</span>
                         </h1>
                     </div>
                 </div>
