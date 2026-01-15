@@ -1,7 +1,7 @@
 import { Navbar } from "./components/Navbar";
 import { HeroSection } from "./components/HeroSection";
 import { AboutSection } from "./components/AboutSection";
-// import { TimelineSection } from "./components/TimelineSection";
+import { TimelineSection } from "./components/TimelineSection";
 import { TracksSection } from "./components/TracksSection";
 import { PrizesSection } from "./components/PrizesSection";
 import { SponsorsSection } from "./components/SponsorsSection";
@@ -28,7 +28,7 @@ export default async function Home() {
       <Navbar />
       <HeroSection />
       <AboutSection />
-      {/* <TimelineSection /> */}
+      <TimelineSection />
       <TracksSection />
       <PrizesSection />
       <SponsorsSection />

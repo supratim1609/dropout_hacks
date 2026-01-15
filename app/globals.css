@@ -28,8 +28,12 @@ body {
 }
 
 @media (pointer: fine) {
-  body {
-    cursor: none;
+
+  /* Force hide native cursor on ALL elements to prevent flickering/reappearing */
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
   }
 }
 
