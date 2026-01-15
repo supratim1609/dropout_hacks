@@ -3,6 +3,36 @@ import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { FloatingParticles } from "../components/FloatingParticles";
 import { TeamGrid } from "../components/TeamGrid";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Meet The Volunteers - The Weavers",
+    description: "Meet the dedicated volunteers of Dropout Hacks - The backbone of Kolkata's premier Spider-Verse themed hackathon. Our amazing volunteers ensure a smooth and memorable experience for all participants.",
+    keywords: [
+        "dropout hacks volunteers",
+        "hackathon volunteers kolkata",
+        "dropout hacks helpers",
+        "tech event volunteers",
+        "student volunteers",
+        "kolkata hackathon support team"
+    ],
+    openGraph: {
+        title: "Meet The Volunteers - The Weavers | Dropout Hacks",
+        description: "Meet the dedicated volunteers of Dropout Hacks - The backbone of Kolkata's premier Spider-Verse themed hackathon.",
+        url: "https://dropouthacks.tech/volunteer",
+        images: [
+            {
+                url: "/opengraph-image.png",
+                width: 1200,
+                height: 630,
+                alt: "Dropout Hacks Volunteers",
+            },
+        ],
+    },
+    alternates: {
+        canonical: "https://dropouthacks.tech/volunteer",
+    },
+};
 
 // Dummy data for volunteer preview
 const dummyVolunteers = [
