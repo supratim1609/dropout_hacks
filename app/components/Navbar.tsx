@@ -191,7 +191,7 @@ export const Navbar = () => {
                                     className="flex items-center justify-center gap-2 bg-[#3770ff] text-white font-bold px-4 rounded-[4px] hover:scale-105 transition-transform"
                                     style={{ height: '44px', width: '100%' }}
                                 >
-                                    <img src="/sponsors/Devfolio_Logo-Colored.png" alt="Devfolio" className="h-5 w-auto brightness-0 invert" />
+                                    <img src="/sponsors/Devfolio_Logo-Colored.svg" alt="Devfolio" className="h-5 w-auto brightness-0 invert" />
                                     Apply with Devfolio
                                 </a>
                             </div>
