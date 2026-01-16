@@ -32,26 +32,12 @@ export const SponsorsSection = () => {
                             1 ALLY FOUND
                         </h3>
 
-                        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 py-8">
+                        <div className="flex justify-center items-center py-8">
                             <a href="https://devfolio.co" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
                                 <img
                                     src="/sponsors/Devfolio_Logo-Colored.png"
                                     alt="DEVFOLIO LOGO"
-                                    className="h-12 md:h-16 object-contain"
-                                />
-                            </a>
-                            <a href="https://polygon.technology" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
-                                <img
-                                    src="/sponsors/Polygon_Logo-Colored.jpg"
-                                    alt="Polygon"
-                                    className="h-12 md:h-16 object-contain"
-                                />
-                            </a>
-                            <a href="https://ethindia.co" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
-                                <img
-                                    src="/sponsors/ETHIndia_Logo-Colored.jpg"
-                                    alt="ETHIndia"
-                                    className="h-12 md:h-16 object-contain"
+                                    className="h-16 md:h-24 object-contain"
                                 />
                             </a>
                         </div>
