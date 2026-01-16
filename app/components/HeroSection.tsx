@@ -96,7 +96,7 @@ export const HeroSection = () => {
                         <a href="https://devfolio.co" target="_blank" rel="noopener noreferrer">
                             <img
                                 src="/sponsors/Devfolio_Logo-Colored.png"
-                                alt="DEVFOLIO LOGO"
+                                alt="Devfolio"
                                 className="h-6 object-contain grayscale hover:grayscale-0 transition-all opacity-80"
                             />
                         </a>
