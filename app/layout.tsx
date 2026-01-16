@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { LayoutWrapper } from "./components/LayoutWrapper";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Script from "next/script";
 
 const bangers = Bangers({
   weight: "400",
@@ -244,6 +245,7 @@ export default function RootLayout({
         <LayoutWrapper>{children}</LayoutWrapper>
         <Analytics />
         <SpeedInsights />
+        <Script src="https://apply.devfolio.co/v2/sdk.js" strategy="lazyOnload" />
       </body>
     </html>
   );
