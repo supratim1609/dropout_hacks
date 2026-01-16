@@ -84,11 +84,11 @@ export const DailyBugleModal = () => {
                             {/* Headline */}
                             <div className="text-center mb-4 md:mb-6">
                                 <h2 className="text-3xl md:text-5xl font-black uppercase leading-[0.9] font-sans mb-2">
-                                    HACKATHON DATES <br />
-                                    <span className="text-red-600 italic">REVEALED!</span>
+                                    REGISTRATIONS <br />
+                                    <span className="text-red-600 italic">NOW OPEN!</span>
                                 </h2>
                                 <p className="font-serif italic text-xs md:text-sm text-gray-700">
-                                    "It's going to be chaos!" - J. Jonah Jameson
+                                    "Applications are flooding in across the multiverse!" - J. Jonah Jameson
                                 </p>
                             </div>
 
