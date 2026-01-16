@@ -245,7 +245,6 @@ export default function RootLayout({
         <LayoutWrapper>{children}</LayoutWrapper>
         <Analytics />
         <SpeedInsights />
-        <Script src="https://apply.devfolio.co/v2/sdk.js" strategy="afterInteractive" />
       </body>
     </html>
   );

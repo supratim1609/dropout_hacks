@@ -8,6 +8,17 @@ import { DateRevealCard } from "./DateRevealCard";
 import { FloatingParticles } from "./FloatingParticles";
 
 export const HeroSection = () => {
+    React.useEffect(() => {
+        const script = document.createElement('script');
+        script.src = 'https://apply.devfolio.co/v2/sdk.js';
+        script.async = true;
+        script.defer = true;
+        document.body.appendChild(script);
+        return () => {
+            document.body.removeChild(script);
+        }
+    }, []);
+
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-36 pb-20 md:py-20 px-8 md:px-16 lg:px-24">
             <FloatingParticles />
