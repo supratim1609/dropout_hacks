@@ -63,13 +63,8 @@ export const HeroSection = () => {
                         </p>
                     </motion.div>
 
-                    {/* CTA Buttons */}
-                    <motion.div
-                        className="flex flex-col sm:flex-row gap-4 pt-4"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.4 }}
-                    >
+                    {/* CTA Buttons - STATIC (No Animation) for Bot Detection */}
+                    <div className="flex flex-col sm:flex-row gap-4 pt-4 items-center sm:items-start">
                         <div
                             className="apply-button"
                             data-hackathon-slug="dropouthacks"
@@ -82,7 +77,17 @@ export const HeroSection = () => {
                                 Discord <Terminal className="w-6 h-6" />
                             </span>
                         </a>
-                    </motion.div>
+                    </div>
+
+                    {/* Powered By Devfolio (Immediate Visibility for Bot) */}
+                    <div className="flex items-center gap-2 mt-2">
+                        <span className="text-gray-400 text-xs font-bold uppercase tracking-wider">Powered by</span>
+                        <img
+                            src="/sponsors/Devfolio_Logo-Colored.png"
+                            alt="DEVFOLIO LOGO"
+                            className="h-6 object-contain grayscale hover:grayscale-0 transition-all opacity-80"
+                        />
+                    </div>
                 </div>
 
                 {/* Right Column: Visual / Interactive */}
