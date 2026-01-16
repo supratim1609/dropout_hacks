@@ -185,13 +185,13 @@ export const Navbar = () => {
 
                             <div className="mt-12 border-t-2 border-dashed border-gray-600 pt-8 text-center relative z-10">
                                 <a
-                                    href="http://dropouthacks.devfolio.co/"
+                                    href="https://dropouthacks.devfolio.co/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center justify-center gap-2 bg-[#3770ff] text-white font-bold px-4 rounded-[4px] hover:scale-105 transition-transform"
                                     style={{ height: '44px', width: '100%' }}
                                 >
-                                    <img src="/sponsors/Devfolio_Logo-Colored.svg" alt="Devfolio" className="h-5 w-auto brightness-0 invert" />
+                                    <img src="/sponsors/Devfolio_Icon.svg" alt="Devfolio" className="h-5 w-auto" />
                                     Apply with Devfolio
                                 </a>
                             </div>
