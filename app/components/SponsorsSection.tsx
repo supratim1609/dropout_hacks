@@ -29,23 +29,23 @@ export const SponsorsSection = () => {
                         </div>
 
                         <h3 className="text-2xl md:text-4xl font-black font-[family-name:var(--font-comic)] uppercase">
-                            SIGNAL SCANNING...
+                            1 ALLY FOUND
                         </h3>
 
-                        <p className="text-lg md:text-2xl font-bold font-[family-name:var(--font-body)] text-gray-800 max-w-2xl">
-                            We are currently looking for visionary partners to join the multiverse. <br />
-                            <span className="text-[var(--color-comic-red)]">Alliance Channels Open.</span>
-                        </p>
-
-                        <div className="pt-8 w-full max-w-md">
-                            <div className="h-2 bg-gray-200 rounded-full overflow-hidden border-2 border-black mb-2">
-                                <div className="h-full bg-[var(--color-comic-blue)] w-[5%] animate-pulse" />
-                            </div>
-                            <div className="flex justify-between text-xs font-bold font-mono">
-                                <span>INITIALIZING...</span>
-                                <span>TARGET: YOU</span>
-                            </div>
+                        <div className="flex justify-center items-center py-8">
+                            <a href="https://devfolio.co" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
+                                <img
+                                    src="/sponsors/Devfolio_Logo-Colored.png"
+                                    alt="DEVFOLIO LOGO"
+                                    className="h-16 md:h-24 object-contain"
+                                />
+                            </a>
                         </div>
+
+                        <p className="text-lg md:text-xl font-bold font-[family-name:var(--font-body)] text-gray-800 max-w-2xl">
+                            Powering the next generation of builders. <br />
+                            <span className="text-[var(--color-comic-red)]">Alliance Established.</span>
+                        </p>
 
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSc70_R3slKTVC6f5BTABlYvz6wBaNbEXaRV9r3I7kh0ZQpzew/viewform" target="_blank" rel="noopener noreferrer">
                             <button className="bg-black text-white font-black px-6 py-3 md:px-10 md:py-5 uppercase hover:scale-105 transition-transform font-[family-name:var(--font-comic)] text-lg md:text-2xl shadow-[6px_6px_0_0_var(--color-comic-red)] hover:shadow-[2px_2px_0_0_var(--color-comic-red)] hover:translate-x-1 hover:translate-y-1 cursor-none border-2 border-transparent hover:border-black hover:bg-[var(--color-comic-yellow)] hover:text-black mt-4">
