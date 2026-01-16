@@ -36,9 +36,7 @@ export const DateRevealCard = () => {
 
                         {/* Status Message */}
                         <div className="w-full relative space-y-4 text-center">
-                            <p className="text-gray-500 font-mono text-xs uppercase tracking-widest mt-4">
-                                REGISTRATIONS OPENING SOON
-                            </p>
+
                         </div>
                     </div>
 
