@@ -8,41 +8,15 @@ import { DateRevealCard } from "./DateRevealCard";
 import { FloatingParticles } from "./FloatingParticles";
 
 export const HeroSection = () => {
-    const [timeLeft, setTimeLeft] = React.useState("");
-    const [isLive, setIsLive] = React.useState(false);
-
     React.useEffect(() => {
-        const targetDate = new Date("2026-01-16T12:00:00+05:30").getTime();
-
-        const updateTimer = () => {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            if (distance < 0) {
-                setIsLive(true);
-                setTimeLeft("NOW");
-            } else {
-                setIsLive(false);
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                // Format: 1d 2h 30m 45s
-                const parts = [];
-                if (days > 0) parts.push(`${days}d`);
-                parts.push(`${hours}h`);
-                parts.push(`${minutes}m`);
-                parts.push(`${seconds}s`);
-
-                setTimeLeft(parts.join(" "));
-            }
-        };
-
-        const interval = setInterval(updateTimer, 1000);
-        updateTimer(); // Initial call
-
-        return () => clearInterval(interval);
+        const script = document.createElement('script');
+        script.src = 'https://apply.devfolio.co/v2/sdk.js';
+        script.async = true;
+        script.defer = true;
+        document.body.appendChild(script);
+        return () => {
+            document.body.removeChild(script);
+        }
     }, []);
 
     return (
@@ -107,25 +81,12 @@ export const HeroSection = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.4 }}
                     >
-                        <button
-                            disabled={!isLive}
-                            className={`group relative font-bold text-xl px-8 py-4 uppercase border-2 transition-all ${isLive
-                                ? "bg-[var(--color-comic-red)] text-white border-black hover:scale-105 hover:shadow-[4px_4px_0_black]"
-                                : "bg-gray-900/80 text-gray-400 border-gray-600 cursor-not-allowed backdrop-blur-sm"
-                                }`}
-                            onClick={() => isLive && window.open("https://dropouthacks.tech/register", "_blank")}
-                        >
-                            <span className="flex items-center gap-3">
-                                {!isLive && <Lock className="w-5 h-5" />}
-                                {isLive ? (
-                                    "REGISTER NOW 🚀"
-                                ) : (
-                                    <span className="flex items-center gap-2">
-                                        PORTAL OPENS IN: <span className="font-mono text-[var(--color-comic-yellow)]">{timeLeft}</span>
-                                    </span>
-                                )}
-                            </span>
-                        </button>
+                        <div
+                            className="apply-button"
+                            data-hackathon-slug="dropouthacks"
+                            data-button-theme="light"
+                            style={{ height: '44px', width: '312px' }}
+                        ></div>
                         <a href="https://discord.gg/hmU2TssPf9" target="_blank" rel="noopener noreferrer" className="group relative bg-transparent text-white font-bold text-xl px-8 py-4 uppercase border-2 border-white hover:bg-[var(--color-comic-blue)] hover:border-[var(--color-comic-blue)] hover:text-black transition-all cursor-none flex items-center justify-center">
                             <span className="absolute -bottom-6 -left-6 bg-[var(--color-comic-yellow)] text-black text-sm font-black px-2 py-1 -rotate-12 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-black shadow-[2px_2px_0_black]">ZIP!</span>
                             <span className="flex items-center gap-2">
