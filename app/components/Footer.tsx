@@ -33,6 +33,17 @@ export const Footer = () => {
 
                     <a href="/rules" className="hover:text-white cursor-none py-2">Rules / CoC</a>
                 </div>
+                {/* Powered by Devfolio - for verification */}
+                <div className="flex items-center justify-center gap-2 mb-4">
+                    <span className="text-gray-400 text-sm">Powered by</span>
+                    <a href="https://devfolio.co" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/sponsors/Devfolio_Logo-Colored.png"
+                            alt="DEVFOLIO LOGO"
+                            className="h-6 object-contain bg-white px-2 py-1 rounded"
+                        />
+                    </a>
+                </div>
                 <p className="text-gray-500 text-sm">
                     © {new Date().getFullYear()} Dropout Hacks. All rights reserved across the multiverse. <br />
                     Built with 🕸️ and ❤️ in Kolkata.
