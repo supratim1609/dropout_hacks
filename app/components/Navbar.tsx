@@ -184,12 +184,16 @@ export const Navbar = () => {
                             </div>
 
                             <div className="mt-12 border-t-2 border-dashed border-gray-600 pt-8 text-center relative z-10">
-                                <div
-                                    className="apply-button"
-                                    data-hackathon-slug="dropouthacks"
-                                    data-button-theme="light"
+                                <a
+                                    href="http://dropouthacks.devfolio.co/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center gap-2 bg-[#3770ff] text-white font-bold px-4 rounded-[4px] hover:scale-105 transition-transform"
                                     style={{ height: '44px', width: '100%' }}
-                                ></div>
+                                >
+                                    <img src="/sponsors/Devfolio_Logo-Colored.png" alt="Devfolio" className="h-5 w-auto brightness-0 invert" />
+                                    Apply with Devfolio
+                                </a>
                             </div>
                         </motion.div>
                     </>
