@@ -187,7 +187,7 @@ export const Navbar = () => {
                                 <div
                                     className="apply-button"
                                     data-hackathon-slug="dropouthacks"
-                                    data-button-theme="dark"
+                                    data-button-theme="light"
                                     style={{ height: '44px', width: '100%' }}
                                 ></div>
                             </div>

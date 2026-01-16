@@ -36,7 +36,7 @@ export const SponsorsSection = () => {
                             <a href="https://devfolio.co" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
                                 <img
                                     src="/sponsors/Devfolio_Logo-Colored.png"
-                                    alt="Devfolio"
+                                    alt="DEVFOLIO LOGO"
                                     className="h-12 md:h-16 object-contain"
                                 />
                             </a>
