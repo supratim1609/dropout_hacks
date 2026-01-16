@@ -67,12 +67,16 @@ export const HeroSection = () => {
 
                     {/* CTA Buttons - STATIC (No Animation) for Bot Detection */}
                     <div className="flex flex-col sm:flex-row gap-4 pt-4 items-center sm:items-start">
-                        <div
-                            className="apply-button"
-                            data-hackathon-slug="dropouthacks"
-                            data-button-theme="light"
+                        <a
+                            href="http://dropouthacks.devfolio.co/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-3 bg-[#3770ff] text-white font-bold text-lg rounded-[4px] hover:scale-105 transition-transform shadow-[4px_4px_0_rgba(0,0,0,0.3)]"
                             style={{ height: '44px', width: '312px' }}
-                        ></div>
+                        >
+                            <img src="/sponsors/Devfolio_Logo-Colored.png" alt="Devfolio" className="h-6 w-auto brightness-0 invert" />
+                            Apply with Devfolio
+                        </a>
                         <a href="https://discord.gg/hmU2TssPf9" target="_blank" rel="noopener noreferrer" className="group relative bg-transparent text-white font-bold text-lg px-8 h-[44px] uppercase border-2 border-white hover:bg-[var(--color-comic-blue)] hover:border-[var(--color-comic-blue)] hover:text-black transition-all cursor-none flex items-center justify-center min-w-[200px]">
                             <span className="absolute -bottom-6 -left-6 bg-[var(--color-comic-yellow)] text-black text-sm font-black px-2 py-1 -rotate-12 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-black shadow-[2px_2px_0_black]">ZIP!</span>
                             <span className="flex items-center gap-2">
