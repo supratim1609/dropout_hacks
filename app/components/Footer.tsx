@@ -38,7 +38,7 @@ export const Footer = () => {
                     <span className="text-gray-400 text-sm">Powered by</span>
                     <a href="https://devfolio.co" target="_blank" rel="noopener noreferrer">
                         <img
-                            src="/sponsors/Devfolio_Logo-Colored.png"
+                            src="/sponsors/Devfolio_Logo-Colored.svg"
                             alt="DEVFOLIO LOGO"
                             className="h-6 object-contain bg-white px-2 py-1 rounded"
                         />

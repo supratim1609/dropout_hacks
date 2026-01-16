@@ -35,7 +35,7 @@ export const SponsorsSection = () => {
                         <div className="flex justify-center items-center py-8">
                             <a href="https://devfolio.co" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
                                 <img
-                                    src="/sponsors/Devfolio_Logo-Colored.png"
+                                    src="/sponsors/Devfolio_Logo-Colored.svg"
                                     alt="DEVFOLIO LOGO"
                                     className="h-16 md:h-24 object-contain"
                                 />
