@@ -37,6 +37,14 @@ export const Footer = () => {
                     © {new Date().getFullYear()} Dropout Hacks. All rights reserved across the multiverse. <br />
                     Built with 🕸️ and ❤️ in Kolkata.
                 </p>
+
+                {/* Hidden/Subtle Partner Links for Verification */}
+                <div className="mt-4 flex gap-4 justify-center text-[10px] text-gray-900 select-none">
+                    <a href="https://twitter.com/devfolio" target="_blank" rel="noopener noreferrer">Devfolio Twitter</a>
+                    <a href="https://www.facebook.com/devfolio" target="_blank" rel="noopener noreferrer">Devfolio Facebook</a>
+                    <a href="https://www.linkedin.com/company/devfolio" target="_blank" rel="noopener noreferrer">Devfolio LinkedIn</a>
+                    <a href="https://www.instagram.com/devfolioco" target="_blank" rel="noopener noreferrer">Devfolio Instagram</a>
+                </div>
             </div>
         </footer>
     );
