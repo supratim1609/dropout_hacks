@@ -9,15 +9,14 @@ import { FloatingParticles } from "./FloatingParticles";
 
 export const HeroSection = () => {
     React.useEffect(() => {
-        // Check if script already exists to prevent duplicates
-        if (document.getElementById('devfolio-sdk')) return;
-
         const script = document.createElement('script');
-        script.id = 'devfolio-sdk';
         script.src = 'https://apply.devfolio.co/v2/sdk.js';
         script.async = true;
         script.defer = true;
         document.body.appendChild(script);
+        return () => {
+            document.body.removeChild(script);
+        }
     }, []);
 
     return (
