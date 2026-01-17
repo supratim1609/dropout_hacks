@@ -26,7 +26,6 @@ export const Footer = () => {
                     <a href="https://instagram.com/dropouthacks" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-comic-red)] cursor-none py-2">Instagram</a>
                     <a href="https://x.com/dropouthacks" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-comic-blue)] cursor-none py-2">X</a>
                     <a href="https://discord.gg/hmU2TssPf9" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-comic-purple)] cursor-none py-2">Discord</a>
-                    {/* <a href="#" className="hover:text-[var(--color-comic-yellow)] cursor-none py-2">LinkedIn</a> */}
 
                     {/* Vertical Divider (Desktop Only) */}
                     <div className="hidden md:block w-px h-6 bg-gray-600"></div>
