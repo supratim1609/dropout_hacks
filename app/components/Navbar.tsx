@@ -27,42 +27,6 @@ export const Navbar = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // Countdown Logic
-    const [timeLeft, setTimeLeft] = useState("");
-    const [isLive, setIsLive] = useState(false);
-
-    useEffect(() => {
-        const targetDate = new Date("2026-01-16T12:00:00+05:30").getTime();
-
-        const updateTimer = () => {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            if (distance < 0) {
-                setIsLive(true);
-                setTimeLeft("NOW");
-            } else {
-                setIsLive(false);
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                const parts = [];
-                if (days > 0) parts.push(`${days}d`);
-                parts.push(`${hours.toString().padStart(2, '0')}h`);
-                parts.push(`${minutes.toString().padStart(2, '0')}m`);
-                parts.push(`${seconds.toString().padStart(2, '0')}s`);
-
-                setTimeLeft(parts.join(" "));
-            }
-        };
-
-        const interval = setInterval(updateTimer, 1000);
-        updateTimer();
-        return () => clearInterval(interval);
-    }, []);
-
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
@@ -219,18 +183,17 @@ export const Navbar = () => {
                                 ))}
                             </div>
 
-                            <div className="mt-12 border-t-2 border-dashed border-gray-600 pt-8 text-center relative z-10 hover:scale-105 transition-transform">
-                                <button
-                                    disabled={!isLive}
-                                    onClick={() => isLive && window.open("https://dropouthacks.tech/register", "_blank")}
-                                    className={`font-bold py-3 px-8 uppercase border-2 w-full transition-all flex items-center justify-center gap-2 ${isLive
-                                        ? "bg-[var(--color-comic-red)] text-white border-black hover:bg-white hover:text-black cursor-pointer"
-                                        : "bg-gray-900 text-gray-400 border-gray-600 cursor-not-allowed"
-                                        }`}
+                            <div className="mt-12 border-t-2 border-dashed border-gray-600 pt-8 text-center relative z-10">
+                                <a
+                                    href="https://dropouthacks.devfolio.co/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center gap-2 bg-[#3770ff] text-white font-bold px-4 rounded-[4px] hover:scale-105 transition-transform"
+                                    style={{ height: '44px', width: '100%' }}
                                 >
-                                    {!isLive && <Lock className="w-4 h-4" />}
-                                    {isLive ? "REGISTER NOW" : <span>PORTAL OPENS: <span className="font-mono text-[var(--color-comic-yellow)]">{timeLeft}</span></span>}
-                                </button>
+                                    <img src="/sponsors/Devfolio_Icon.svg" alt="Devfolio" className="h-5 w-auto" />
+                                    Apply with Devfolio
+                                </a>
                             </div>
                         </motion.div>
                     </>

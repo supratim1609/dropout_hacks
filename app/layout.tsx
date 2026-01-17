@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { LayoutWrapper } from "./components/LayoutWrapper";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Script from "next/script";
 
 const bangers = Bangers({
   weight: "400",
@@ -166,16 +167,35 @@ export default function RootLayout({
                 "@context": "https://schema.org",
                 "@type": "Organization",
                 "name": "Dropout Hacks",
+                "alternateName": "DropoutHacks",
                 "url": "https://dropouthacks.tech",
-                "logo": "https://dropouthacks.tech/logo.png",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://dropouthacks.tech/icon.png",
+                  "width": "800",
+                  "height": "800",
+                  "caption": "Dropout Hacks Logo"
+                },
+                "image": "https://dropouthacks.tech/icon.png",
                 "description": "Kolkata's premier Spider-Verse themed hackathon bringing together developers, designers, and tech enthusiasts.",
+                "foundingDate": "2025",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Kolkata",
+                  "addressRegion": "West Bengal",
+                  "addressCountry": "IN"
+                },
                 "sameAs": [
-                  "https://twitter.com/dropouthacks"
+                  "https://twitter.com/dropouthacks",
+                  "https://www.facebook.com/dropouthacks",
+                  "https://www.instagram.com/dropouthacks",
+                  "https://www.linkedin.com/company/dropouthacks"
                 ],
                 "contactPoint": {
                   "@type": "ContactPoint",
                   "contactType": "Event Information",
-                  "url": "https://dropouthacks.tech"
+                  "url": "https://dropouthacks.tech",
+                  "availableLanguage": ["English", "Hindi", "Bengali"]
                 }
               },
               {
