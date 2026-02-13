@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Home, Trophy, Calendar, Users, HelpCircle, HandHeart, Lock, Map } from "lucide-react";
+import { Menu, X, Home, Trophy, Calendar, Users, HelpCircle, HandHeart, Lock, Map, Heart } from "lucide-react";
 import clsx from "clsx";
 
 const navLinks = [
@@ -33,8 +33,23 @@ export const Navbar = () => {
 
     return (
         <>
+            {/* Valentine's Day Special Banner */}
+            <motion.div
+                initial={{ y: -50 }}
+                animate={{ y: 0 }}
+                className="fixed top-0 left-0 right-0 z-[10000] bg-gradient-to-r from-pink-500 via-rose-500 to-pink-500 py-2 pointer-events-auto shadow-lg"
+            >
+                <Link href="https://valentine-x-dropouthacks.vercel.app/" target="_blank" className="flex items-center justify-center gap-2 group">
+                    <Heart className="w-4 h-4 text-white animate-pulse fill-white" />
+                    <span className="text-white text-xs md:text-sm font-black uppercase tracking-widest group-hover:underline">
+                        Find your Player-2: Play Multiverse FLAMES now! 💘
+                    </span>
+                    <Heart className="w-4 h-4 text-white animate-pulse fill-white" />
+                </Link>
+            </motion.div>
+
             {/* Top Bar */}
-            <nav className="fixed top-0 left-0 right-0 z-[9999] p-6 flex justify-between items-center pointer-events-none">
+            <nav className="fixed top-8 left-0 right-0 z-[9999] p-6 flex justify-between items-center pointer-events-none">
                 {/* Logo - Pointer events auto to allow clicking */}
                 {/* Logo - Pointer events auto to allow clicking */}
                 <Link href="/" className="pointer-events-auto cursor-none">
@@ -181,6 +196,19 @@ export const Navbar = () => {
                                         </span>
                                     </motion.a>
                                 ))}
+                            </div>
+
+                            <div className="mt-8 border-t-2 border-dashed border-rose-300 pt-6 text-center relative z-10">
+                                <a
+                                    href="https://valentine-x-dropouthacks.vercel.app/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center justify-center gap-2 bg-gradient-to-r from-pink-400 to-rose-500 text-white font-bold px-4 rounded-[4px] hover:scale-105 transition-transform shadow-[0_4px_15px_rgba(244,63,94,0.3)]"
+                                    style={{ height: '50px', width: '100%' }}
+                                >
+                                    <Heart className="w-5 h-5 animate-pulse" fill="white" />
+                                    Multiverse FLAMES Game
+                                </a>
                             </div>
 
                             <div className="mt-12 border-t-2 border-dashed border-gray-600 pt-8 text-center relative z-10">

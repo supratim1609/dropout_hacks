@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { Heart } from "lucide-react";
 
 export const LoadingScreen = ({ children }: { children: React.ReactNode }) => {
     const [isLoading, setIsLoading] = useState(true);
@@ -81,8 +82,36 @@ export const LoadingScreen = ({ children }: { children: React.ReactNode }) => {
                                 animate={{ opacity: [0, 1, 0.5, 1] }}
                                 transition={{ delay: 0.8, duration: 1.5, repeat: Infinity }}
                             >
-                                INITIALIZING MULTIVERSE...
+                                SCANNING MULTIVERSE FOR PLAYER 2...
                             </motion.p>
+
+                            {/* Miles & Gwen Anomaly Hearts */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[300px] pointer-events-none">
+                                <motion.div
+                                    animate={{
+                                        x: [-100, -20],
+                                        y: [20, -10],
+                                        rotate: [-5, 5],
+                                        opacity: [0, 0.6, 0.4]
+                                    }}
+                                    transition={{ duration: 4, repeat: Infinity, repeatType: "mirror" }}
+                                    className="absolute left-1/4 text-[var(--color-comic-blue)] blur-sm"
+                                >
+                                    <Heart size={48} fill="currentColor" opacity={0.3} strokeWidth={1} />
+                                </motion.div>
+                                <motion.div
+                                    animate={{
+                                        x: [100, 20],
+                                        y: [-20, 10],
+                                        rotate: [5, -5],
+                                        opacity: [0, 0.6, 0.4]
+                                    }}
+                                    transition={{ duration: 4, repeat: Infinity, repeatType: "mirror", delay: 0.5 }}
+                                    className="absolute right-1/4 text-pink-500 blur-sm"
+                                >
+                                    <Heart size={48} fill="currentColor" opacity={0.3} strokeWidth={1} />
+                                </motion.div>
+                            </div>
                         </div>
                     </motion.div>
                 )}

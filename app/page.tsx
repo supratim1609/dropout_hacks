@@ -5,12 +5,13 @@ import { TimelineSection } from "./components/TimelineSection";
 import { TracksSection } from "./components/TracksSection";
 import { PrizesSection } from "./components/PrizesSection";
 import { SponsorsSection } from "./components/SponsorsSection";
+import { CommunityPartnersSection } from "./components/CommunityPartnersSection";
 import { FAQSection } from "./components/FAQSection";
 import { Footer } from "./components/Footer";
 import { WebShooter } from "./components/WebShooter";
 import { OrganisersMessage } from "./components/OrganisersMessage";
 import { getTeamData } from "./lib/googleSheets";
-import { DailyBugleModal } from "./components/DailyBugleModal";
+import { ValentinePolaroid } from "./components/ValentinePolaroid";
 
 // Force dynamic rendering if we want real-time updates without building
 export const dynamic = 'force-dynamic';
@@ -23,7 +24,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-[var(--color-comic-dark)] overflow-x-hidden selection:bg-[var(--color-comic-red)] selection:text-white relative">
-      <DailyBugleModal />
+      <ValentinePolaroid />
       <WebShooter />
       <Navbar />
       <HeroSection />
@@ -32,6 +33,7 @@ export default async function Home() {
       <TracksSection />
       <PrizesSection />
       <SponsorsSection />
+      <CommunityPartnersSection />
       <FAQSection />
       <OrganisersMessage members={teamMembers} />
       <Footer />
