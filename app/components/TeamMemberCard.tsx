@@ -60,7 +60,7 @@ export const TeamMemberCard = ({ name, role, image, socials, gender }: TeamMembe
                 </h3>
 
                 {/* Socials */}
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 relative z-20">
                     {socials?.github && (
                         <a href={socials.github} target="_blank" rel="noopener noreferrer" aria-label={`${name}'s GitHub profile`} className="text-gray-400 hover:text-white hover:scale-110 transition-all">
                             <Github className="w-5 h-5" />
