@@ -1,0 +1,27 @@
+# Dropout Hacks
+
+> Kolkata's First Spider-Verse Themed Hackathon.
+
+Join Kolkata's ultimate Spider-Verse themed hackathon on March 28-29, 2026. Code, build, innovate and save the multiverse.
+
+## Essential Information
+
+- **Date:** March 28-29, 2026
+- **Location:** Kolkata, West Bengal, India
+- **Registration:** [Apply on Devfolio](https://dropouthacks.devfolio.co/)
+- **Discord:** [Join Community](https://discord.gg/hmU2TssPf9)
+
+## Key Pages
+
+- [Home](https://dropouthacks.tech/) - Overview, Timeline, Tracks, and Sponsors.
+- [Team](https://dropouthacks.tech/team) - Meet the organisers and team behind Dropout Hacks.
+- [Rules](https://dropouthacks.tech/rules) - Hackathon rules, code of conduct, and guidelines.
+- [Volunteer](https://dropouthacks.tech/volunteer) - Opportunities to help organise and manage the event.
+
+## FAQ
+
+- **Is it free?** Yes, registration and attendance are completely free.
+- **Who can join?** Students and tech enthusiasts from all backgrounds.
+- **Prizes?** Amazing prizes, internship opportunities, and networking with industry experts.
+
+For more details, visit our official website at https://dropouthacks.tech
