@@ -25,19 +25,19 @@ const timelinePhases = [
     },
     {
         id: 3,
-        date: "???",
-        title: "DATA CORRUPTED",
-        description: "Access Denied. Awaiting further keys.",
-        status: "locked",
-        color: "bg-gray-800"
+        date: "MARCH 15",
+        title: "FINAL RECON",
+        description: "Round 1 results out. RSVP for offline finals. Final briefing before the dimensional leap.",
+        status: "unlocked",
+        color: "bg-[var(--color-comic-red)]"
     },
     {
         id: 4,
         date: "MARCH 28",
         title: "THE ENDGAME",
-        description: "The final convergence. 48 hours of chaos.",
-        status: "locked", // Semi-revealed? Or just locked? keeping locked for mystery.
-        color: "bg-gray-800"
+        description: "The main convergence. 48 hours of pure building, pizza, and prizes in Kolkata.",
+        status: "unlocked",
+        color: "bg-[var(--color-comic-red)]"
     }
 ];
 

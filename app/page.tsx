@@ -5,6 +5,7 @@ import { TimelineSection } from "./components/TimelineSection";
 import { TracksSection } from "./components/TracksSection";
 import { PrizesSection } from "./components/PrizesSection";
 import { SponsorsSection } from "./components/SponsorsSection";
+import { CommunityPartnersSection } from "./components/CommunityPartnersSection";
 import { FAQSection } from "./components/FAQSection";
 import { Footer } from "./components/Footer";
 import { WebShooter } from "./components/WebShooter";
@@ -31,6 +32,7 @@ export default async function Home() {
       <TimelineSection />
       <TracksSection />
       <PrizesSection />
+      <CommunityPartnersSection />
       <SponsorsSection />
       <FAQSection />
       <OrganisersMessage members={teamMembers} />

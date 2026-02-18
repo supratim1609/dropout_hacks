@@ -12,7 +12,6 @@ const navLinks = [
     { name: "Roadmap", icon: <Map className="w-6 h-6" />, href: "/#roadmap" },
     { name: "Tracks", icon: <Users className="w-6 h-6" />, href: "/#tracks" },
     { name: "Team", icon: <Users className="w-6 h-6" />, href: "/team" },
-    { name: "Volunteer", icon: <HandHeart className="w-6 h-6" />, href: "/volunteer" },
     { name: "FAQ", icon: <HelpCircle className="w-6 h-6" />, href: "/#faq" },
 ];
 
