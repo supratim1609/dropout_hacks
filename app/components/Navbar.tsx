@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Home, Trophy, Calendar, Users, HelpCircle, HandHeart, Lock, Map, Heart } from "lucide-react";
+import { Menu, X, Home, Users, HelpCircle, HandHeart, Map } from "lucide-react";
 import clsx from "clsx";
 
 const navLinks = [
@@ -33,24 +33,8 @@ export const Navbar = () => {
 
     return (
         <>
-            {/* Valentine's Day Special Banner */}
-            <motion.div
-                initial={{ y: -50 }}
-                animate={{ y: 0 }}
-                className="fixed top-0 left-0 right-0 z-[10000] bg-gradient-to-r from-pink-500 via-rose-500 to-pink-500 py-2 pointer-events-auto shadow-lg"
-            >
-                <Link href="https://valentine-x-dropouthacks.vercel.app/" target="_blank" className="flex items-center justify-center gap-2 group">
-                    <Heart className="w-4 h-4 text-white animate-pulse fill-white" />
-                    <span className="text-white text-xs md:text-sm font-black uppercase tracking-widest group-hover:underline">
-                        Find your Player-2: Play Multiverse FLAMES now! 💘
-                    </span>
-                    <Heart className="w-4 h-4 text-white animate-pulse fill-white" />
-                </Link>
-            </motion.div>
-
             {/* Top Bar */}
-            <nav className="fixed top-8 left-0 right-0 z-[9999] p-6 flex justify-between items-center pointer-events-none">
-                {/* Logo - Pointer events auto to allow clicking */}
+            <nav className="fixed top-0 left-0 right-0 z-[9999] p-6 flex justify-between items-center pointer-events-none">
                 {/* Logo - Pointer events auto to allow clicking */}
                 <Link href="/" className="pointer-events-auto cursor-none">
                     <div className="transform -rotate-1 hover:rotate-2 transition-transform w-[180px]">
@@ -100,10 +84,7 @@ export const Navbar = () => {
                                     style={{ top: 0, left: 0 }}
                                 >
                                     <svg width="200" height="200" viewBox="0 0 200 200" className="transform -rotate-90 drop-shadow-xl">
-                                        {/* Head Shape */}
                                         <path d="M100 30 C 60 30 35 70 35 100 C 35 140 65 170 100 175 C 135 170 165 140 165 100 C 165 70 140 30 100 30 Z" fill="#D80027" stroke="black" strokeWidth="3" />
-
-                                        {/* Webbing (Subtle) */}
                                         <g stroke="black" strokeWidth="1" opacity="0.3" fill="none">
                                             <path d="M100 100 L100 30" />
                                             <path d="M100 100 L165 100" />
@@ -116,23 +97,16 @@ export const Navbar = () => {
                                             <ellipse cx="100" cy="100" rx="40" ry="50" />
                                             <ellipse cx="100" cy="100" rx="60" ry="70" />
                                         </g>
-
-                                        {/* The Eyes (Iconic) */}
-                                        {/* Left Eye */}
                                         <path d="M85 80 Q 50 70 55 110 C 60 130 80 120 90 110 C 95 105 90 85 85 80 Z" fill="white" stroke="black" strokeWidth="4" />
-                                        {/* Right Eye */}
                                         <path d="M115 80 Q 150 70 145 110 C 140 130 120 120 110 110 C 105 105 110 85 115 80 Z" fill="white" stroke="black" strokeWidth="4" />
-
-                                        {/* Hand/Web-shooter connecting to line */}
                                         <path d="M100 175 L100 200" stroke="white" strokeWidth="4" />
                                     </svg>
                                 </motion.div>
 
-                                {/* The Web Line (Connecting Spidey to Menu) */}
                                 <svg className="absolute inset-0 w-full h-full">
                                     <motion.line
-                                        x1="150" // Adjusted to match Spidey's web shooter position (Div X: -50 + Local X: 200)
-                                        y1={window.innerHeight / 2 + 100} // Adjusted to match Spidey's vertical center (Div Y + Local Y: 100)
+                                        x1="150"
+                                        y1={window.innerHeight / 2 + 100}
                                         x2={windowWidth - 400}
                                         y2={window.innerHeight / 2}
                                         stroke="white"
@@ -160,8 +134,8 @@ export const Navbar = () => {
                             className={clsx(
                                 "fixed bg-black z-[100] p-8 flex flex-col justify-center shadow-[-20px_0_40px_rgba(0,0,0,1)]",
                                 windowWidth < 768
-                                    ? "inset-0 w-full h-full border-b-4 border-[var(--color-comic-red)]" // Mobile: Fullscreen, Top-down
-                                    : "top-0 right-0 h-full w-[400px] border-l-4 border-[var(--color-comic-red)]" // Desktop: Sidebar, Right-pull
+                                    ? "inset-0 w-full h-full border-b-4 border-[var(--color-comic-red)]"
+                                    : "top-0 right-0 h-full w-[400px] border-l-4 border-[var(--color-comic-red)]"
                             )}
                         >
                             {/* Close Button for Mobile */}
@@ -174,7 +148,6 @@ export const Navbar = () => {
                                 </button>
                             )}
 
-                            {/* Background Pattern for Sidebar */}
                             <div className="absolute inset-0 bg-halftone opacity-20 pointer-events-none" />
 
                             <div className="space-y-6 relative z-10">
@@ -196,19 +169,6 @@ export const Navbar = () => {
                                         </span>
                                     </motion.a>
                                 ))}
-                            </div>
-
-                            <div className="mt-8 border-t-2 border-dashed border-rose-300 pt-6 text-center relative z-10">
-                                <a
-                                    href="https://valentine-x-dropouthacks.vercel.app/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center justify-center gap-2 bg-gradient-to-r from-pink-400 to-rose-500 text-white font-bold px-4 rounded-[4px] hover:scale-105 transition-transform shadow-[0_4px_15px_rgba(244,63,94,0.3)]"
-                                    style={{ height: '50px', width: '100%' }}
-                                >
-                                    <Heart className="w-5 h-5 animate-pulse" fill="white" />
-                                    Multiverse FLAMES Game
-                                </a>
                             </div>
 
                             <div className="mt-12 border-t-2 border-dashed border-gray-600 pt-8 text-center relative z-10">

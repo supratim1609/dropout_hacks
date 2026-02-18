@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bangers, Space_Grotesk, Caveat } from "next/font/google";
+import { Bangers, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
 import { LayoutWrapper } from "./components/LayoutWrapper";
@@ -16,11 +16,6 @@ const bangers = Bangers({
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-body",
-});
-
-const caveat = Caveat({
-  subsets: ["latin"],
-  variable: "--font-handwriting",
 });
 
 export const metadata: Metadata = {
@@ -121,7 +116,6 @@ export default function RootLayout({
         className={clsx(
           bangers.variable,
           spaceGrotesk.variable,
-          caveat.variable,
           "antialiased bg-[var(--color-comic-dark)] text-white min-h-screen selection:bg-[var(--color-comic-red)] selection:text-white cursor-none"
         )}
       >
