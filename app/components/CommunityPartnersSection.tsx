@@ -24,32 +24,23 @@ const partners = [
 ];
 
 const Shard = ({ logo, index, bg }: { logo: string, index: number, bg?: string }) => {
-    const clipPaths = [
-        "polygon(0% 15%, 100% 0%, 85% 100%, 0% 85%)",
-        "polygon(10% 0%, 90% 10%, 100% 90%, 0% 100%)",
-        "polygon(0% 0%, 100% 20%, 90% 100%, 10% 80%)",
-        "polygon(20% 0%, 100% 0%, 80% 100%, 0% 90%)",
-    ];
-    const clipPath = clipPaths[index % clipPaths.length];
-
     return (
         <motion.div
             whileHover={{
-                scale: 1.1,
+                scale: 1.05,
                 zIndex: 50,
-                filter: "drop-shadow(0 0 20px var(--color-comic-red))"
+                rotate: 0
             }}
             className="flex-shrink-0 w-28 h-28 md:w-52 md:h-52 mx-2 md:mx-4 group relative cursor-crosshair"
         >
             <div
-                className={`absolute inset-0 ${bg === 'black' ? 'bg-black' : 'bg-white'} border-2 md:border-4 border-black md:group-hover:bg-black transition-colors duration-500 overflow-hidden`}
-                style={{ clipPath }}
+                className={`absolute inset-0 ${bg === 'black' ? 'bg-black' : 'bg-white'} border-2 md:border-4 border-black transition-colors duration-500 overflow-hidden rounded-sm md:rounded-md flex items-center justify-center`}
             >
-                <div className="absolute inset-2 md:inset-4 flex items-center justify-center">
+                <div className="w-full h-full flex items-center justify-center p-2 md:p-4">
                     <img
                         src={logo}
                         alt="Partner"
-                        className="w-full h-full object-contain md:grayscale group-hover:grayscale-0 transition-all duration-700"
+                        className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500"
                     />
                 </div>
             </div>
