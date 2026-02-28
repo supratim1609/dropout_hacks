@@ -172,11 +172,12 @@ export default function TracksPage() {
                                 </p>
 
                                 {/* Problem Statements Box */}
-                                <div className="w-full mt-2 bg-black/40 border-2 border-black p-4 md:p-5 relative group">
-                                    <div className="absolute -top-3 left-4 bg-[var(--color-comic-yellow)] text-black font-black uppercase text-xs px-2 py-0.5 border-2 border-black transform -rotate-2 group-hover:rotate-0 transition-transform">
+                                <div className="w-full mt-4 bg-black/40 border-2 border-black p-4 md:p-5 pt-8 md:pt-9 relative group overflow-hidden">
+                                    <div className="absolute top-1 left-4 bg-[var(--color-comic-yellow)] text-black font-black uppercase text-xs px-2 py-0.5 border-2 border-black transform -rotate-2 group-hover:rotate-0 transition-transform z-20">
                                         Problem Statements
                                     </div>
-                                    <ul className="space-y-3 mt-2">
+                                    {/* Blurred content */}
+                                    <ul className="space-y-3 mt-2 blur-[6px] select-none pointer-events-none">
                                         {track.problemStatements.map((statement, idx) => (
                                             <li key={idx} className="flex items-start gap-2 text-sm md:text-base font-bold font-[family-name:var(--font-body)] text-gray-200">
                                                 <span className="text-[var(--color-comic-red)] shrink-0 mt-0.5">►</span>
@@ -184,6 +185,12 @@ export default function TracksPage() {
                                             </li>
                                         ))}
                                     </ul>
+                                    {/* Classified overlay */}
+                                    <div className="absolute inset-0 flex items-center justify-center z-10">
+                                        <div className="bg-[var(--color-comic-red)] text-white font-black font-[family-name:var(--font-comic)] text-xl md:text-2xl uppercase px-6 py-2 border-4 border-black shadow-[4px_4px_0_black] rotate-[-3deg] tracking-widest">
+                                            🔒 CLASSIFIED
+                                        </div>
+                                    </div>
                                 </div>
                             </ComicPanel>
                         </motion.div>
