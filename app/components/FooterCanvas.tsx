@@ -7,7 +7,18 @@ export default function FooterCanvas() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [isDrawing, setIsDrawing] = useState(false);
     const [mode, setMode] = useState<"draw" | "erase">("draw");
+    const [penColor, setPenColor] = useState<string>("#000000");
     const [context, setContext] = useState<CanvasRenderingContext2D | null>(null);
+
+    const colors = [
+        { label: "Black", value: "#000000" },
+        { label: "Red", value: "#FF0033" },       // var(--color-comic-red)
+        { label: "Blue", value: "#00D2FF" },      // var(--color-comic-blue)
+        { label: "Purple", value: "#D000FF" },    // var(--color-comic-purple)
+        { label: "Yellow", value: "#FFE600" },    // var(--color-comic-yellow)
+        { label: "Green", value: "#00FF66" },
+        { label: "White", value: "#FFFFFF" }
+    ];
 
     // Initialize canvas
     useEffect(() => {
@@ -28,7 +39,7 @@ export default function FooterCanvas() {
         ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
         ctx.lineWidth = 4;
-        ctx.strokeStyle = '#000000';
+        ctx.strokeStyle = penColor;
         setContext(ctx);
 
         // Pre-fill canvas with fun prompt if desired
@@ -63,19 +74,19 @@ export default function FooterCanvas() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    // Update context tool when mode changes
+    // Update context tool when mode or color changes
     useEffect(() => {
         if (!context) return;
         if (mode === "draw") {
             context.globalCompositeOperation = "source-over";
             context.lineWidth = 4;
-            context.strokeStyle = "#000000";
+            context.strokeStyle = penColor;
         } else {
             // Eraser mode
             context.globalCompositeOperation = "destination-out";
             context.lineWidth = 30; // Thicker eraser
         }
-    }, [mode, context]);
+    }, [mode, penColor, context]);
 
     const startDrawing = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
         setIsDrawing(true);
@@ -120,7 +131,7 @@ export default function FooterCanvas() {
     };
 
     return (
-        <div className="flex-1 w-full h-full min-h-[150px] relative mt-4 border-2 border-dashed border-black/20 group/canvas rounded-sm overflow-hidden bg-white/50">
+        <div className="flex-1 w-full h-full min-h-[240px] relative mt-4 border-4 border-black group/canvas rounded-none overflow-hidden bg-white shadow-[inset_0_0_20px_rgba(0,0,0,0.05)] flex flex-col">
             {/* Toolbar */}
             <div className="absolute top-2 right-2 z-10 flex gap-2 opacity-50 group-hover/canvas:opacity-100 transition-opacity">
                 <button
@@ -157,14 +168,31 @@ export default function FooterCanvas() {
                 onTouchEnd={stopDrawing}
                 onTouchCancel={stopDrawing}
                 onTouchMove={draw}
-                className={`w-full h-full cursor-crosshair touch-none ${mode === "erase" ? "cursor-[url('/eraser.png'),_pointer]" : ""}`}
+                className={`w-full flex-1 cursor-crosshair touch-none ${mode === "erase" ? "cursor-[url('/eraser.png'),_pointer]" : ""}`}
                 style={{ touchAction: 'none' }} // Crucial for mobile drawing
             />
 
+            {/* Color Palette (Bottom) */}
+            <div className="h-12 bg-gray-100 border-t-4 border-black flex items-center px-4 gap-3 overflow-x-auto select-none">
+                <span className="text-sm font-black uppercase text-gray-500 mr-2 shrink-0">INK:</span>
+                {colors.map((c) => (
+                    <button
+                        key={c.value}
+                        onClick={() => {
+                            setPenColor(c.value);
+                            setMode("draw"); // switch back to draw if picking a color
+                        }}
+                        className={`w-6 h-6 rounded-full border-2 shrink-0 hover:scale-110 transition-transform ${penColor === c.value && mode === "draw" ? "border-black scale-110 shadow-[2px_2px_0_black]" : "border-black/20"}`}
+                        style={{ backgroundColor: c.value }}
+                        title={c.label}
+                    />
+                ))}
+            </div>
+
             {/* Instruction overlay (disappears on hover/interaction) */}
-            <div className="absolute bottom-2 left-2 pointer-events-none opacity-40 font-bold text-xs text-black flex items-center gap-2 group-hover/canvas:opacity-0 transition-opacity">
-                <PenTool size={12} />
-                <span>Interact with the timeline</span>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-20 font-bold text-lg md:text-2xl text-black font-[family-name:var(--font-comic)] flex flex-col items-center gap-2 group-hover/canvas:opacity-0 transition-opacity">
+                <PenTool size={32} />
+                <span className="text-center tracking-widest uppercase">Draw Something!</span>
             </div>
         </div>
     );

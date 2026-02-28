@@ -69,14 +69,7 @@ export const Footer = () => {
                         </div>
 
                         <div className="relative z-10 mt-auto">
-                            <h4 className="font-black font-[family-name:var(--font-comic)] text-xl uppercase mb-4 tracking-tighter">Enter the Multiverse</h4>
-                            <div className="flex gap-4">
-                                <a href="https://discord.gg/hmU2TssPf9" className="hover:text-[var(--color-comic-purple)] transition-colors"><DiscordIcon /></a>
-                                <a href="https://instagram.com/dropouthacks" className="hover:text-[var(--color-comic-red)] transition-colors"><Instagram strokeWidth={2.5} /></a>
-                                <a href="https://linkedin.com" className="hover:text-[var(--color-comic-blue)] transition-colors"><Linkedin strokeWidth={2.5} /></a>
-                                <a href="mailto:hello@dropouthacks.com" className="hover:hover:text-[var(--color-comic-yellow)] transition-colors"><Mail strokeWidth={2.5} /></a>
-                                <a href="https://x.com/dropouthacks" className="hover:text-black transition-colors"><Twitter strokeWidth={2.5} /></a>
-                            </div>
+                            <h4 className="font-black font-[family-name:var(--font-comic)] text-xl uppercase tracking-tighter">Enter the Multiverse</h4>
                         </div>
 
                         {/* Decorative Top Left Strip */}
@@ -96,11 +89,22 @@ export const Footer = () => {
                         </div>
 
                         {/* Bottom CTA Button Panel */}
-                        <a href="https://dropouthacks.devfolio.co/" target="_blank" rel="noopener noreferrer" className="bg-[#b200ff] text-white border-4 border-black p-6 flex-grow flex flex-col justify-center relative group transform md:-rotate-2 hover:rotate-0 transition-transform shadow-[6px_6px_0_var(--color-comic-red)] cursor-none">
-                            <span className="font-[family-name:var(--font-comic)] font-black text-2xl uppercase tracking-tighter block mb-2 group-hover:scale-105 transition-transform origin-left">Register.</span>
-                            <p className="font-bold text-sm">Secure your spot in the timeline.</p>
-                            <ArrowUpRight strokeWidth={3} className="absolute right-4 bottom-4 opacity-50 w-8 h-8 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" />
-                        </a>
+                        <div className="bg-[#b200ff] text-white border-4 border-black p-6 flex-grow flex flex-col justify-between relative group transform md:-rotate-2 hover:rotate-0 transition-transform shadow-[6px_6px_0_var(--color-comic-red)] cursor-none">
+                            <a href="https://dropouthacks.devfolio.co/" target="_blank" rel="noopener noreferrer" className="block relative z-10">
+                                <span className="font-[family-name:var(--font-comic)] font-black text-2xl uppercase tracking-tighter block mb-2 group-hover:scale-105 transition-transform origin-left">Register.</span>
+                                <p className="font-bold text-sm mb-6">Secure your spot in the timeline.</p>
+                                <ArrowUpRight strokeWidth={3} className="absolute right-0 top-0 opacity-50 w-8 h-8 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" />
+                            </a>
+
+                            {/* Socials moved here */}
+                            <div className="relative z-10 mt-auto pt-4 border-t-2 border-black/20 flex gap-4 justify-between items-center">
+                                <a href="https://discord.gg/hmU2TssPf9" className="hover:text-[var(--color-comic-yellow)] transition-colors transform hover:scale-110"><DiscordIcon /></a>
+                                <a href="https://instagram.com/dropouthacks" className="hover:text-[var(--color-comic-yellow)] transition-colors transform hover:scale-110"><Instagram strokeWidth={2.5} size={22} /></a>
+                                <a href="https://linkedin.com" className="hover:text-[var(--color-comic-yellow)] transition-colors transform hover:scale-110"><Linkedin strokeWidth={2.5} size={22} /></a>
+                                <a href="mailto:hello@dropouthacks.com" className="hover:text-[var(--color-comic-yellow)] transition-colors transform hover:scale-110"><Mail strokeWidth={2.5} size={22} /></a>
+                                <a href="https://x.com/dropouthacks" className="hover:text-[var(--color-comic-yellow)] transition-colors transform hover:scale-110"><Twitter strokeWidth={2.5} size={22} /></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
