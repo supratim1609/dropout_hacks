@@ -6,7 +6,7 @@ import { ComicPanel } from "./ComicPanel";
 
 export const AboutSection = () => {
     return (
-        <section className="py-20 px-4 bg-[var(--color-comic-yellow)] text-black relative overflow-hidden">
+        <section className="py-20 px-4 bg-[var(--color-comic-yellow)] text-black relative -mb-[4vw] z-10">
             {/* Background Dots Pattern (CSS Radial Gradient can be used here too, or just simple dots) */}
             <div className="absolute inset-0 opacity-20" style={{
                 backgroundImage: "radial-gradient(#000 1px, transparent 1px)",

@@ -43,11 +43,21 @@ const timelinePhases = [
 
 export const TimelineSection = () => {
     return (
-        <section id="roadmap" className="py-20 px-4 md:px-8 relative overflow-hidden bg-[var(--color-comic-Blue)]">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 bg-halftone opacity-10 pointer-events-none" />
+        <section id="roadmap" className="relative pt-12 md:pt-[6vw] pb-[20vw] overflow-hidden -mt-8 md:-mt-12 z-20 bg-[var(--color-comic-yellow)]">
+            {/* Comic Panel Diagonal Cut Backgrounds */}
+            <div
+                className="absolute inset-x-0 top-0 bottom-0 bg-[var(--color-comic-red)] pointer-events-none z-0"
+                style={{ clipPath: "polygon(0 6vw, 100% 0, 100% 100%, 0 100%)" }}
+            />
+            <div
+                className="absolute inset-x-0 top-[0.5vw] md:top-[0.4vw] bottom-0 bg-[var(--color-comic-blue)] pointer-events-none z-0"
+                style={{ clipPath: "polygon(0 6vw, 100% 0, 100% 100%, 0 100%)" }}
+            >
+                {/* Background Pattern */}
+                <div className="absolute inset-0 bg-halftone opacity-10 pointer-events-none" />
+            </div>
 
-            <div className="container mx-auto relative z-10">
+            <div className="container mx-auto px-4 md:px-8 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

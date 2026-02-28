@@ -10,7 +10,8 @@ import clsx from "clsx";
 const navLinks = [
     { name: "Home", icon: <Home className="w-6 h-6" />, href: "/" },
     { name: "Roadmap", icon: <Map className="w-6 h-6" />, href: "/#roadmap" },
-    { name: "Tracks", icon: <Users className="w-6 h-6" />, href: "/#tracks" },
+    { name: "Tracks", icon: <Users className="w-6 h-6" />, href: "/tracks" },
+    { name: "Prizes", icon: <Users className="w-6 h-6" />, href: "/prizes" },
     { name: "Team", icon: <Users className="w-6 h-6" />, href: "/team" },
     { name: "FAQ", icon: <HelpCircle className="w-6 h-6" />, href: "/#faq" },
 ];

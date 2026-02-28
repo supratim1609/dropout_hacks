@@ -2,8 +2,6 @@ import { Navbar } from "./components/Navbar";
 import { HeroSection } from "./components/HeroSection";
 import { AboutSection } from "./components/AboutSection";
 import { TimelineSection } from "./components/TimelineSection";
-import { TracksSection } from "./components/TracksSection";
-import { PrizesSection } from "./components/PrizesSection";
 import { SponsorsSection } from "./components/SponsorsSection";
 import { CommunityPartnersSection } from "./components/CommunityPartnersSection";
 import { FAQSection } from "./components/FAQSection";
@@ -30,8 +28,6 @@ export default async function Home() {
       <HeroSection />
       <AboutSection />
       <TimelineSection />
-      <TracksSection />
-      <PrizesSection />
       <CommunityPartnersSection />
       <SponsorsSection />
       <FAQSection />

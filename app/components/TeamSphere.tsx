@@ -398,9 +398,9 @@ export const TeamSphere = ({ members }: TeamSphereProps) => {
                                                 className="w-full h-full object-cover"
                                                 onLoad={() => console.log("Loaded:", item.content)}
                                                 onError={(e) => {
-                                                    console.error("Failed to load:", item.content);
+                                                    // Suppress console.error so Next.js doesn't show a dev overlay
                                                     e.currentTarget.style.display = 'none';
-                                                    e.currentTarget.parentElement?.classList.add('bg-black');
+                                                    e.currentTarget.parentElement?.classList.add('bg-[var(--color-comic-blue)]');
                                                 }}
                                             />
                                         ) : (

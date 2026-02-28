@@ -31,12 +31,12 @@ const Shard = ({ logo, index, bg }: { logo: string, index: number, bg?: string }
                 zIndex: 50,
                 rotate: 0
             }}
-            className="flex-shrink-0 w-28 h-28 md:w-52 md:h-52 mx-2 md:mx-4 group relative cursor-crosshair"
+            className="flex-shrink-0 w-24 h-24 md:w-36 md:h-36 mx-2 md:mx-4 group relative cursor-crosshair"
         >
             <div
                 className={`absolute inset-0 ${bg === 'black' ? 'bg-black' : 'bg-white'} border-2 md:border-4 border-black transition-colors duration-500 overflow-hidden rounded-sm md:rounded-md flex items-center justify-center`}
             >
-                <div className="w-full h-full flex items-center justify-center p-2 md:p-4">
+                <div className="w-full h-full flex items-center justify-center p-3 md:p-5">
                     <img
                         src={logo}
                         alt="Partner"
@@ -50,10 +50,10 @@ const Shard = ({ logo, index, bg }: { logo: string, index: number, bg?: string }
 
 const MarqueeRow = ({ items, direction = "left", speed = 30 }: { items: any[], direction?: "left" | "right", speed?: number }) => {
     return (
-        <div className="flex overflow-hidden py-4 md:py-8 select-none">
+        <div className="flex overflow-hidden py-4 md:py-8 select-none w-full">
             <motion.div
-                className="flex whitespace-nowrap"
-                animate={{ x: direction === "left" ? [0, -1000] : [-1000, 0] }}
+                className="flex w-max"
+                animate={{ x: direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"] }}
                 transition={{
                     x: {
                         repeat: Infinity,
@@ -63,7 +63,8 @@ const MarqueeRow = ({ items, direction = "left", speed = 30 }: { items: any[], d
                     },
                 }}
             >
-                {[...items, ...items, ...items].map((item, idx) => (
+                {/* 4 sets of items ensure it can fill ultra-wide screens. Shifting by 50% shifts exactly 2 sets for a perfect loop. */}
+                {[...items, ...items, ...items, ...items].map((item, idx) => (
                     <Shard key={idx} logo={item.logo} index={idx} bg={item.bg} />
                 ))}
             </motion.div>
@@ -76,19 +77,33 @@ export const CommunityPartnersSection = () => {
     const row2 = partners.slice(9);
 
     return (
-        <section className="py-16 md:py-24 bg-black overflow-hidden relative">
-            {/* Background Narrative */}
+        <section className="relative pt-32 md:pt-40 pb-[12vw] overflow-hidden -mt-[16vw] md:-mt-[12vw] z-20">
+            {/* Comic Panel Diagonal Cut Backgrounds */}
+            <div
+                className="absolute inset-x-0 top-0 bottom-0 bg-[var(--color-comic-red)] pointer-events-none z-0 hover:bg-yellow-400 transition-colors duration-1000"
+                style={{ clipPath: "polygon(0 6vw, 100% 0, 100% 100%, 0 100%)" }}
+            />
+            <div
+                className="absolute inset-x-0 top-[1vw] md:top-[0.8vw] bottom-0 bg-[var(--color-comic-yellow)] pointer-events-none z-0"
+                style={{ clipPath: "polygon(0 6vw, 100% 0, 100% 100%, 0 100%)" }}
+            >
+                <div className="absolute inset-0 opacity-20" style={{
+                    backgroundImage: "radial-gradient(#000 1px, transparent 1px)",
+                    backgroundSize: "20px 20px"
+                }}></div>
+            </div>
 
-            <div className="container mx-auto px-4 relative z-10 text-center mb-8 md:mb-12">
+            {/* Background Narrative */}
+            <div className="container mx-auto px-4 relative z-10 text-center mb-12 md:mb-16 mt-4">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     className="relative inline-block"
                 >
-                    <h2 className="text-4xl sm:text-6xl md:text-8xl font-black font-[family-name:var(--font-comic)] uppercase leading-none tracking-tighter text-white drop-shadow-[4px_4px_0_var(--color-comic-red)] md:drop-shadow-[8px_8px_0_var(--color-comic-red)]">
-                        COMMUNITY <span className="text-[var(--color-comic-yellow)]">PARTNERS</span>
+                    <h2 className="text-5xl sm:text-7xl md:text-[7rem] font-black font-[family-name:var(--font-comic)] uppercase leading-none text-black mb-4">
+                        COMMUNITY <span className="text-white" style={{ WebkitTextStroke: "2px black" }}>PARTNERS</span>
                     </h2>
-                    <div className="absolute -top-3 -right-6 md:-top-4 md:-right-8 bg-white text-black px-2 py-0.5 md:py-1 font-black transform rotate-12 border-2 border-black text-[10px] md:text-sm">
+                    <div className="absolute -top-3 -right-6 md:-top-4 md:-right-8 bg-black text-white px-2 py-0.5 md:py-1 font-black transform rotate-12 border-2 border-black text-[10px] md:text-sm">
                         OUR ALLIANCE
                     </div>
                 </motion.div>
@@ -100,12 +115,7 @@ export const CommunityPartnersSection = () => {
                 <MarqueeRow items={row2} direction="right" speed={25} />
             </div>
 
-            {/* The Background Kinetic Text */}
-            <div className="absolute top-1/2 left-0 w-full pointer-events-none -translate-y-1/2 opacity-[0.03]">
-                <div className="text-[20vw] font-black uppercase italic whitespace-nowrap leading-none">
-                    MULTIVERSE ALLIANCE MULTIVERSE
-                </div>
-            </div>
+            {/* The Background Kinetic Text (Watermark Removed) */}
 
             {/* CTA */}
 

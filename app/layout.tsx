@@ -111,13 +111,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={clsx(
           bangers.variable,
           spaceGrotesk.variable,
           "antialiased bg-[var(--color-comic-dark)] text-white min-h-screen selection:bg-[var(--color-comic-red)] selection:text-white cursor-none"
         )}
+        suppressHydrationWarning
       >
         <script
           type="application/ld+json"
