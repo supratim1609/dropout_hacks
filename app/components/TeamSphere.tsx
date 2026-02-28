@@ -5,6 +5,8 @@ import { TeamMember } from "../lib/googleSheets";
 
 interface TeamSphereProps {
     members: TeamMember[];
+    className?: string;
+    radiusScale?: number;
 }
 
 interface SphereItem {
@@ -32,7 +34,7 @@ const TEXT_TAGS = [
     "GRIND", "CAFFEINE", "3AM", "COMPILE", "EXECUTE"
 ];
 
-export const TeamSphere = ({ members }: TeamSphereProps) => {
+export const TeamSphere = ({ members, className = "", radiusScale = 1 }: TeamSphereProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [items, setItems] = useState<SphereItem[]>([]);
     const [clickedItem, setClickedItem] = useState<number | null>(null);
@@ -56,16 +58,16 @@ export const TeamSphere = ({ members }: TeamSphereProps) => {
             const width = window.innerWidth;
             let newRadius = 250;
             if (width < 480) {
-                newRadius = 120; // Very small screens
+                newRadius = 120 * radiusScale; // Very small screens
                 setIsMobile(true);
             } else if (width < 768) {
-                newRadius = 160; // Mobile
+                newRadius = 160 * radiusScale; // Mobile
                 setIsMobile(true);
             } else if (width < 1024) {
-                newRadius = 200; // Tablet
+                newRadius = 200 * radiusScale; // Tablet
                 setIsMobile(false);
             } else {
-                newRadius = 250; // Desktop
+                newRadius = 250 * radiusScale; // Desktop
                 setIsMobile(false);
             }
             targetRadiusRef.current = newRadius;
@@ -313,7 +315,7 @@ export const TeamSphere = ({ members }: TeamSphereProps) => {
 
             <div
                 ref={containerRef}
-                className="w-full h-[300px] sm:h-[400px] md:h-[500px] relative flex items-center justify-center perspective-1000 cursor-grab active:cursor-grabbing touch-none"
+                className={`w-full relative flex items-center justify-center perspective-1000 cursor-grab active:cursor-grabbing touch-none ${className || 'h-[300px] sm:h-[400px] md:h-[500px]'}`}
                 onMouseDown={handleMouseDown}
                 onMouseMove={handleMouseMove}
                 onMouseUp={handleMouseUp}

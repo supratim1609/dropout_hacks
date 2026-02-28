@@ -2,9 +2,14 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ComicPanel } from "./ComicPanel";
+import { TeamSphere } from "./TeamSphere";
+import { TeamMember } from "../lib/googleSheets";
 
-export const AboutSection = () => {
+interface AboutSectionProps {
+    members?: TeamMember[];
+}
+
+export const AboutSection = ({ members = [] }: AboutSectionProps) => {
     return (
         <section className="py-20 px-4 bg-[var(--color-comic-yellow)] text-black relative -mb-[4vw] z-10">
             {/* Background Dots Pattern (CSS Radial Gradient can be used here too, or just simple dots) */}
@@ -44,24 +49,9 @@ export const AboutSection = () => {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    className="grid grid-cols-2 gap-4"
+                    className="w-full h-full relative flex items-center justify-center p-4 lg:p-0 min-h-[400px] lg:min-h-[500px]"
                 >
-                    <ComicPanel variant="default" className="bg-white transform rotate-2">
-                        <h3 className="text-4xl font-black font-[family-name:var(--font-comic)]">48</h3>
-                        <p className="uppercase font-bold text-sm">Hours of Creation</p>
-                    </ComicPanel>
-                    <ComicPanel variant="default" className="bg-black text-white transform -rotate-2 border-white">
-                        <h3 className="text-4xl font-black font-[family-name:var(--font-comic)] text-[var(--color-comic-red)]">1500+</h3>
-                        <p className="uppercase font-bold text-sm">Hackers Assembling</p>
-                    </ComicPanel>
-                    <ComicPanel variant="default" className="bg-[var(--color-comic-blue)] text-white transform -rotate-1 border-black">
-                        <h3 className="text-4xl font-black font-[family-name:var(--font-comic)]">₹ TBD</h3>
-                        <p className="uppercase font-bold text-sm">Cash Prize Pool</p>
-                    </ComicPanel>
-                    <ComicPanel variant="default" className="bg-white transform rotate-3">
-                        <h3 className="text-4xl font-black font-[family-name:var(--font-comic)]">∞</h3>
-                        <p className="uppercase font-bold text-sm">Networking</p>
-                    </ComicPanel>
+                    <TeamSphere members={members} className="w-full aspect-square max-w-[500px] lg:max-w-[600px]" radiusScale={1.3} />
                 </motion.div>
             </div>
         </section>

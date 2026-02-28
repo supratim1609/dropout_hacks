@@ -7,7 +7,6 @@ import { CommunityPartnersSection } from "./components/CommunityPartnersSection"
 import { FAQSection } from "./components/FAQSection";
 import { Footer } from "./components/Footer";
 import { WebShooter } from "./components/WebShooter";
-import { OrganisersMessage } from "./components/OrganisersMessage";
 import { getTeamData } from "./lib/googleSheets";
 import { DailyBugleModal } from "./components/DailyBugleModal";
 
@@ -26,12 +25,11 @@ export default async function Home() {
       <WebShooter />
       <Navbar />
       <HeroSection />
-      <AboutSection />
+      <AboutSection members={teamMembers} />
       <TimelineSection />
       <CommunityPartnersSection />
       <SponsorsSection />
       <FAQSection />
-      <OrganisersMessage members={teamMembers} />
       <Footer />
     </main>
   );
