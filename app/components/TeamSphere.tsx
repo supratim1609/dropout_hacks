@@ -38,8 +38,8 @@ export const TeamSphere = ({ members, className = "", radiusScale = 1 }: TeamSph
     const containerRef = useRef<HTMLDivElement>(null);
     const [items, setItems] = useState<SphereItem[]>([]);
     const [clickedItem, setClickedItem] = useState<number | null>(null);
-    const [radius, setRadius] = useState(90); // Start compact (Big Bang) - tuned to 90 to avoid heavy overlap
-    const [hasExploded, setHasExploded] = useState(false);
+    const [radius, setRadius] = useState(90);
+    const [hasExploded, setHasExploded] = useState(true);
     const [isMobile, setIsMobile] = useState(false);
 
     const rotationRef = useRef({ x: 0, y: 0 });
@@ -241,11 +241,6 @@ export const TeamSphere = ({ members, className = "", radiusScale = 1 }: TeamSph
     };
 
     const handleContainerClick = (e: React.MouseEvent) => {
-        if (!hasExploded) {
-            setHasExploded(true);
-            return;
-        }
-
         // Repel Effect
         const rect = containerRef.current?.getBoundingClientRect();
         if (!rect) return;
@@ -421,19 +416,6 @@ export const TeamSphere = ({ members, className = "", radiusScale = 1 }: TeamSph
                         );
                     })}
                 </div>
-
-                {/* BLAST Button */}
-                {!hasExploded && (
-                    <button
-                        className="absolute right-4 top-1/2 transform -translate-y-1/2 px-4 py-2 sm:px-6 sm:py-3 bg-yellow-400 hover:bg-yellow-300 text-black font-comic font-black text-lg sm:text-xl border-[3px] border-black shadow-[4px_4px_0_black] active:shadow-[2px_2px_0_black] active:translate-x-[2px] active:translate-y-[2px] transition-all z-50 animate-bounce cursor-pointer"
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            setHasExploded(true);
-                        }}
-                    >
-                        BLAST! 💥
-                    </button>
-                )}
             </div>
         </>
     );

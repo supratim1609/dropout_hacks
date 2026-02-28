@@ -2,12 +2,11 @@
 
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { FloatingParticles } from "./FloatingParticles";
 
 const faqs = [
     {
         q: "Do I need a team?",
-        a: "You can hack solo or in a team of up to 4. We'll have team building events if you're a lone wolf looking for a pack.",
+        a: "You can hack in a team of 2 to 5. We'll have team building events if you're a lone wolf looking for a pack.",
         color: "bg-[var(--color-comic-red)]"
     },
     {
@@ -90,8 +89,12 @@ export const FAQSection = () => {
     const scrollRef = useRef<HTMLDivElement>(null);
 
     return (
-        <section id="faq" className="pt-12 pb-12 md:pt-16 md:pb-16 px-4 bg-[var(--color-comic-dark)] relative overflow-hidden">
-            <FloatingParticles />
+        <section id="faq" className="pt-12 pb-12 md:pt-16 md:pb-16 px-4 bg-[var(--color-comic-yellow)] relative overflow-hidden">
+            {/* Background Dots Pattern */}
+            <div className="absolute inset-0 opacity-20 pointer-events-none" style={{
+                backgroundImage: "radial-gradient(#000 1px, transparent 1px)",
+                backgroundSize: "20px 20px"
+            }} />
 
             {/* Background Spidey Web Decor */}
             <div className="absolute top-0 right-0 opacity-10 pointer-events-none scale-150 origin-top-right transform translate-x-1/4 -translate-y-1/4">
@@ -109,8 +112,8 @@ export const FAQSection = () => {
                 {/* Section Header */}
                 <div className="flex justify-center mb-16 relative z-10">
                     <div className="relative inline-flex flex-col items-center">
-                        <h2 className="text-6xl md:text-8xl lg:text-[8rem] font-black font-[family-name:var(--font-comic)] text-white text-shadow-comic tracking-tighter uppercase relative z-10 transform -rotate-2">
-                            FA<span className="text-[var(--color-comic-yellow)]">Q</span>S
+                        <h2 className="text-6xl md:text-8xl lg:text-[8rem] font-black font-[family-name:var(--font-comic)] text-black tracking-tighter uppercase relative z-10 transform -rotate-2" style={{ textShadow: "4px 4px 0px var(--color-comic-red)" }}>
+                            FA<span className="text-white" style={{ WebkitTextStroke: "3px black" }}>Q</span>S
                         </h2>
                         {/* Spider-man themed badge */}
                         <div className="absolute -bottom-6 -right-12 bg-[var(--color-comic-red)] text-white border-4 border-black px-4 py-1 font-black transform rotate-6 z-20 shadow-[4px_4px_0_black]">
@@ -135,7 +138,7 @@ export const FAQSection = () => {
 
                 {/* Scroll Indicator */}
                 <div className="flex justify-center mt-4 opacity-50">
-                    <div className="animate-bounce flex items-center space-x-2 text-white font-bold tracking-widest uppercase text-sm">
+                    <div className="animate-bounce flex items-center space-x-2 text-black font-bold tracking-widest uppercase text-sm">
                         <span>← Swipe or Scroll →</span>
                     </div>
                 </div>
