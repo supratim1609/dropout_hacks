@@ -84,7 +84,7 @@ export const Footer = () => {
                         </div>
 
                         {/* Bottom CTA Button Panel */}
-                        <a href="#" className="bg-[#b200ff] text-white border-4 border-black p-6 flex-grow flex flex-col justify-center relative group transform md:-rotate-2 hover:rotate-0 transition-transform shadow-[6px_6px_0_var(--color-comic-red)] cursor-none">
+                        <a href="https://dropouthacks.devfolio.co/" target="_blank" rel="noopener noreferrer" className="bg-[#b200ff] text-white border-4 border-black p-6 flex-grow flex flex-col justify-center relative group transform md:-rotate-2 hover:rotate-0 transition-transform shadow-[6px_6px_0_var(--color-comic-red)] cursor-none">
                             <span className="font-[family-name:var(--font-comic)] font-black text-2xl uppercase tracking-tighter block mb-2 group-hover:scale-105 transition-transform origin-left">Register.</span>
                             <p className="font-bold text-sm">Secure your spot in the timeline.</p>
                             <ArrowUpRight strokeWidth={3} className="absolute right-4 bottom-4 opacity-50 w-8 h-8 group-hover:opacity-100 group-hover:-translate-y-1 group-hover:translate-x-1 transition-all" />
