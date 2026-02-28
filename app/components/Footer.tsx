@@ -3,7 +3,10 @@
 import React from "react";
 import Image from "next/image";
 import { DanglingSpidey } from "./DanglingSpidey";
+import FooterCanvas from "./FooterCanvas";
 import { Instagram, Twitter, Linkedin, Mail, ArrowUpRight } from "lucide-react";
+
+// (Skipping Discord icon definition to keep diff short but replacing from line 1 through the Left Panel content)
 
 const DiscordIcon = () => (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -31,29 +34,38 @@ export const Footer = () => {
                 backgroundPosition: "0 0, 20px 20px"
             }} />
 
-            {/* Dangling Spidey - Pushed Down a Bit */}
-            <div className="pt-[10vw]">
-                <DanglingSpidey width={160} height={224} />
+            {/* Dangling Spidey */}
+            <div className="pt-[8vw]">
+                <DanglingSpidey width={120} height={168} />
             </div>
 
-            <div className="container mx-auto px-4 relative z-20 xl:-mt-12">
+            <div className="container mx-auto px-4 relative z-20">
 
                 {/* Asymmetrical Comic Panel Grid layout */}
-                <div className="flex flex-col xl:flex-row items-stretch justify-center gap-6 mt-16 max-w-7xl mx-auto">
+                <div className="flex flex-col xl:flex-row items-stretch justify-center gap-6 mt-10 max-w-7xl mx-auto">
 
                     {/* Left Panel: Primary Logo Block */}
-                    <div className="flex-1 bg-white text-black border-4 border-black p-8 md:p-12 relative group transform md:-rotate-1 hover:rotate-0 transition-transform shadow-[8px_8px_0_var(--color-comic-blue)] flex flex-col justify-between">
+                    <div className="flex-1 bg-white text-black border-4 border-black p-6 md:p-8 relative group transform md:-rotate-1 hover:rotate-0 transition-transform shadow-[8px_8px_0_var(--color-comic-blue)] flex flex-col justify-between">
                         {/* Halftone subtle inside */}
                         <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: "radial-gradient(#000 1.5px, transparent 1.5px)", backgroundSize: "12px 12px" }} />
 
-                        <div className="relative z-10 w-full mb-12">
+                        <div className="relative z-10 w-full mb-6 flex justify-between items-start">
                             <Image
                                 src="/logo.png"
                                 alt="Dropout Hacks"
-                                width={260}
-                                height={80}
+                                width={200}
+                                height={60}
                                 className="object-contain"
                             />
+                            {/* Animated badge corner */}
+                            <div className="w-16 h-16 bg-[var(--color-comic-yellow)] rounded-full border-4 border-black flex items-center justify-center -rotate-12 animate-[spin_10s_linear_infinite] shrink-0">
+                                <span className="font-black text-xs text-center leading-tight">V1.0<br />LIVE</span>
+                            </div>
+                        </div>
+
+                        {/* Interactive Drawing Canvas */}
+                        <div className="flex-1 w-full min-h-[160px] relative z-10 flex flex-col">
+                            <FooterCanvas />
                         </div>
 
                         <div className="relative z-10 mt-auto">
@@ -93,7 +105,7 @@ export const Footer = () => {
                 </div>
 
                 {/* Final Credits Row */}
-                <div className="mt-16 pt-8 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold text-gray-500 tracking-wider">
+                <div className="mt-10 pt-6 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold text-gray-500 tracking-wider">
                     <p>© {new Date().getFullYear()} Dropout Hacks.</p>
                     <p className="text-gray-400">All rights reserved across the multiverse.</p>
                     <p className="flex items-center gap-1">Built with 🕸️ and ❤️ in Kolkata.</p>
