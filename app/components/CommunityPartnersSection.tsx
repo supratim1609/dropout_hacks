@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 
 const partners = [
     { name: "GDG On Campus TMSL", logo: "/partners/gdg-tmsl.jpg" },
-    { name: "SCECE", logo: "/partners/scece.png", bg: "black" },
     { name: "NooBuild", logo: "/partners/noobuild.jpg", bg: "black" },
     { name: "React Kolkata", logo: "/partners/react-kolkata.png", bg: "black" },
     { name: "Samarth", logo: "/partners/samarth.png" },
