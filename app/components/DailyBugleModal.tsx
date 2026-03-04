@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, MousePointerClick, Zap } from "lucide-react";
+import { X, Globe, Terminal } from "lucide-react";
 
 export const DailyBugleModal = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -27,131 +27,116 @@ export const DailyBugleModal = () => {
     return (
         <AnimatePresence>
             {isVisible && (
-                <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4">
-                    {/* Dark Backdrop */}
+                <div className="fixed inset-0 z-[10000] flex items-start justify-center p-4 overflow-y-auto py-12">
+                    {/* Backdrop */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={handleClose}
-                        className="fixed inset-0 bg-black/80 backdrop-blur-md cursor-pointer"
+                        className="fixed inset-0 bg-black/60 backdrop-blur-sm cursor-pointer"
                     />
 
-                    {/* Cyber-Comic Holi Modal Container */}
+                    {/* Newspaper Modal */}
                     <motion.div
-                        initial={{ scale: 0.9, y: 50, opacity: 0 }}
-                        animate={{ scale: 1, y: 0, opacity: 1 }}
-                        exit={{ scale: 0.95, y: 20, opacity: 0 }}
+                        initial={{ scale: 0, rotate: -720, y: 500 }}
+                        animate={{ scale: 1, rotate: 0, y: 0 }}
+                        exit={{ scale: 0.5, opacity: 0, y: 200 }}
                         transition={{
                             type: "spring",
                             damping: 20,
-                            stiffness: 300,
+                            stiffness: 100,
+                            duration: 1.5
                         }}
-                        className="relative w-full max-w-2xl bg-zinc-950 border-4 border-white p-1 overflow-hidden group"
+                        className="relative bg-[#f0e6d2] text-black w-full max-w-lg shadow-[0_0_50px_rgba(0,0,0,0.5)] p-0.5 md:p-1 md:rotate-1"
                         style={{
-                            boxShadow: "10px 10px 0px 0px rgba(236,72,153, 1)", // Pink neo-brutalist shadow
+                            backgroundImage: "radial-gradient(#b0a692 1px, transparent 1px)",
+                            backgroundSize: "20px 20px"
                         }}
                     >
-                        {/* --- DYNAMIC LIVING BACKGROUND --- */}
-                        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                            {/* Animated Breathing Blobs */}
-                            <motion.div
-                                animate={{
-                                    scale: [1, 1.2, 1],
-                                    x: [0, 20, 0],
-                                    y: [0, -20, 0]
-                                }}
-                                transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-                                className="absolute -top-32 -left-32 w-96 h-96 bg-cyan-500 rounded-full mix-blend-screen blur-3xl opacity-60"
-                            />
-                            <motion.div
-                                animate={{
-                                    scale: [1, 1.3, 1],
-                                    x: [0, -30, 0],
-                                    y: [0, 30, 0]
-                                }}
-                                transition={{ duration: 5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 1 }}
-                                className="absolute top-1/2 -right-32 w-[30rem] h-[30rem] bg-pink-500 rounded-full mix-blend-screen blur-3xl opacity-50"
-                            />
-                            <motion.div
-                                animate={{
-                                    scale: [1, 1.1, 1],
-                                    y: [0, 40, 0]
-                                }}
-                                transition={{ duration: 6, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 2 }}
-                                className="absolute -bottom-40 left-1/4 w-[25rem] h-[25rem] bg-yellow-400 rounded-full mix-blend-screen blur-3xl opacity-40"
-                            />
+                        {/* Paper borders effect */}
+                        <div className="border-4 border-black h-full p-2 md:p-6 relative bg-[#f0e6d2]">
 
-                            {/* Comic Halftone Overlay (Ties it to the Spider-Verse theme) */}
-                            <div className="absolute inset-0 opacity-30 mix-blend-overlay bg-halftone" />
-                        </div>
-
-                        {/* --- CONTENT --- */}
-                        <div className="relative z-10 bg-zinc-950/70 backdrop-blur-md p-8 md:p-12 border-2 border-white/20 m-2">
-
-                            {/* Close Button */}
+                            {/* Close Button - Responsive Position */}
                             <button
                                 onClick={handleClose}
-                                aria-label="Close modal"
-                                className="absolute top-4 right-4 text-zinc-400 hover:text-pink-500 transition-colors z-20"
+                                aria-label="Close daily bugle modal"
+                                className="absolute -top-3 -right-3 md:-top-5 md:-right-5 bg-red-600 text-white p-2 md:p-2 border-2 border-black shadow-[4px_4px_0_black] hover:scale-110 transition-transform z-20"
                             >
-                                <X size={28} strokeWidth={3} />
+                                <X size={24} strokeWidth={4} className="w-6 h-6" />
                             </button>
 
-                            <div className="flex flex-col items-start text-left">
-                                {/* System Header */}
-                                <div className="flex items-center gap-2 mb-6 font-mono text-cyan-400 text-sm xl:text-base font-bold uppercase tracking-widest border-b border-white/20 w-full pb-3">
-                                    <Zap size={18} className="animate-pulse" />
-                                    <span>SYSTEM WIDE EVENT // DROPOUTHACKS HOLI</span>
+                            {/* Header */}
+                            <div className="border-b-4 border-black pb-2 mb-4 text-center">
+                                <div className="flex justify-between items-center text-[8px] md:text-[10px] font-bold uppercase border-b border-black mb-1 pb-1">
+                                    <span>March 28-29, 2026</span>
+                                    <span>Kolkata Edition</span>
+                                    <span>Price: One Idea</span>
                                 </div>
-
-                                {/* Headline */}
-                                <h2 className="text-5xl md:text-7xl font-black text-white mb-2 uppercase leading-[0.85] tracking-tighter">
-                                    HAPPY <br />
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-yellow-400 to-cyan-400 drop-shadow-[0_0_10px_rgba(236,72,153,0.5)]">
-                                        HOLI!
-                                    </span>
-                                </h2>
-
-                                {/* Subtitle / Message */}
-                                <p className="text-zinc-300 text-lg md:text-xl font-mono leading-relaxed mb-6 max-w-lg">
-                                    Reality distortion detected across 50+ Universes. Welcome to the ultimate hacker convergence.
-                                </p>
-
-                                {/* THE MAIN HIGHLIGHT INSTRUCTION */}
-                                <motion.div
-                                    initial={{ scale: 0.9, opacity: 0 }}
-                                    animate={{ scale: 1, opacity: 1 }}
-                                    transition={{ delay: 0.8, type: "spring" }}
-                                    className="w-full bg-pink-500 text-white p-4 md:p-6 mb-8 border-4 border-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-2"
-                                >
-                                    <div className="flex items-center gap-4">
-                                        <MousePointerClick size={40} className="animate-bounce" />
-                                        <div>
-                                            <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight">CLICK ANYWHERE ON SCREEN!</h3>
-                                            <p className="font-mono text-sm md:text-base font-bold">Throw digital colors and hack the UI.</p>
-                                        </div>
-                                    </div>
-                                </motion.div>
-
-                                {/* Action Buttons */}
-                                <div className="w-full flex flex-col sm:flex-row gap-4">
-                                    <a
-                                        href="https://dropouthacks.devfolio.co/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="bg-white text-black font-black uppercase text-lg px-8 py-4 hover:bg-cyan-400 transition-colors border-2 border-white shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:translate-y-1 hover:shadow-none flex items-center justify-center"
-                                    >
-                                        Apply to DropoutHacks
-                                    </a>
-                                    <button
-                                        onClick={handleClose}
-                                        className="bg-zinc-900 border-2 border-zinc-700 text-white font-bold uppercase text-lg px-8 py-4 hover:bg-zinc-800 transition-colors"
-                                    >
-                                        Start Splashing
-                                    </button>
+                                <h1 className="font-black text-4xl md:text-7xl uppercase tracking-tighter leading-none font-serif py-1">
+                                    THE DAILY BUGLE
+                                </h1>
+                                <div className="text-[8px] md:text-[10px] font-bold uppercase border-t border-black mt-1 pt-1 tracking-[0.2em] text-red-600">
+                                    Multiverse Hacking Special Edition
                                 </div>
                             </div>
+
+                            {/* Headline */}
+                            <div className="text-center mb-4 md:mb-6">
+                                <h2 className="text-3xl md:text-5xl font-black uppercase leading-[0.9] font-sans mb-2">
+                                    REGISTRATIONS <br />
+                                    <span className="text-red-600">THREATENING</span> REALITY!
+                                </h2>
+                                <p className="font-serif italic text-xs md:text-sm text-gray-700">
+                                    "Hackers from 50+ Universes descending on Kolkata!" - J. Jonah Jameson
+                                </p>
+                            </div>
+
+                            {/* Content Grid */}
+                            <div className="flex flex-col md:flex-row gap-4 items-center">
+                                {/* Photo */}
+                                <div className="w-full md:w-1/2 aspect-video bg-neutral-900 border-2 border-black relative overflow-hidden group shadow-[4px_4px_0_rgba(0,0,0,0.2)]">
+                                    <div className="absolute inset-0 bg-halftone opacity-30" />
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                        <Terminal className="w-16 h-16 text-[var(--color-comic-blue)] animate-pulse" />
+                                    </div>
+                                    <div className="absolute bottom-0 right-0 bg-white px-2 py-0.5 text-[6px] md:text-[8px] font-bold border-t border-l border-black">
+                                        FIG A. THE CODE ANOMALY
+                                    </div>
+                                </div>
+
+                                {/* Article Text */}
+                                <div className="w-full md:w-1/2 font-serif text-sm leading-tight text-justify">
+                                    <p className="first-letter:text-3xl md:first-letter:text-4xl first-letter:font-black first-letter:float-left first-letter:mr-1">
+                                        T HE Multiverse is in chaos as the registration count for Kolkata's premier hackathon has shattered all known temporal records.
+                                    </p>
+                                    <p className="mt-2 text-blue-600 font-bold italic border-y border-blue-200 py-1">
+                                        "They're not just building apps, they're rewriting the law of physics!"
+                                    </p>
+                                    <p className="mt-2">
+                                        Jameson demands to know: Who are these "Dropout" hackers and why is the Mayor allowing such a disruption?
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Footer */}
+                            <div className="mt-4 md:mt-6 pt-2 border-t-2 border-black text-center flex flex-col gap-2">
+                                <a
+                                    href="https://dropouthacks.devfolio.co/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="bg-black text-white font-bold uppercase px-4 py-3 text-xs md:text-sm hover:bg-neutral-800 transition-colors shadow-[4px_4px_0_var(--color-comic-blue)] flex items-center justify-center gap-2 border-2 border-black"
+                                >
+                                    APPLY NOW VIA DEVFOLIO
+                                </a>
+                                <button
+                                    onClick={handleClose}
+                                    className="text-[10px] uppercase font-bold text-gray-500 hover:text-black transition-colors"
+                                >
+                                    CLOSE THE BUGLE
+                                </button>
+                            </div>
+
                         </div>
                     </motion.div>
                 </div>
