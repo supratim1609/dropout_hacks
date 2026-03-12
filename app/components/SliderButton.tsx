@@ -18,7 +18,7 @@ export const SliderButton = ({ onComplete, text = "Slide to Register" }: SliderB
     const containerRef = useRef<HTMLDivElement>(null);
 
     const sliderSize = 48;
-    const containerWidth = 240;
+    const containerWidth = 300;
     const containerHeight = 56;
     const padding = 4;
     const maxDrag = containerWidth - sliderSize - (padding * 2);
@@ -112,7 +112,7 @@ export const SliderButton = ({ onComplete, text = "Slide to Register" }: SliderB
     return (
         <div
             ref={containerRef}
-            className="relative rounded-full overflow-hidden select-none flex items-center"
+            className="relative rounded-full overflow-hidden select-none flex items-center flex-shrink-0"
             style={{
                 width: containerWidth,
                 height: containerHeight,
@@ -136,17 +136,19 @@ export const SliderButton = ({ onComplete, text = "Slide to Register" }: SliderB
             />
 
             {/* Background text */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div
+                className="absolute inset-y-0 right-0 flex items-center justify-center pointer-events-none"
+                style={{ left: sliderSize + padding }}
+            >
                 <span
-                    className={`font-semibold text-sm uppercase tracking-widest transition-all duration-300 ${isComplete ? 'opacity-0' : 'opacity-100'}`}
+                    className={`font-semibold text-sm uppercase tracking-widest transition-all duration-300 whitespace-nowrap ${isComplete ? 'opacity-0' : 'opacity-100'}`}
                     style={{
-                        marginLeft: sliderSize / 2,
                         color: 'rgba(255, 255, 255, 0.5)'
                     }}
                 >
                     {text}
                 </span>
-                <span className={`absolute text-white font-bold text-sm transition-opacity duration-300 ${isComplete ? 'opacity-100' : 'opacity-0'}`}>
+                <span className={`absolute text-white font-bold text-sm whitespace-nowrap transition-opacity duration-300 ${isComplete ? 'opacity-100' : 'opacity-0'}`}>
                     ✓ Opening...
                 </span>
             </div>
