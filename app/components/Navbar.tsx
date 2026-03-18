@@ -19,6 +19,8 @@ const navLinks = [
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [windowWidth, setWindowWidth] = useState(0);
+    const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
 
     useEffect(() => {
         setWindowWidth(window.innerWidth);
@@ -27,6 +29,25 @@ export const Navbar = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > lastScrollY && currentScrollY > 50) {
+                // Scrolling down
+                setIsVisible(false);
+            } else if (currentScrollY < lastScrollY) {
+                // Scrolling up
+                setIsVisible(true);
+            }
+            
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [lastScrollY]);
+
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
@@ -34,28 +55,79 @@ export const Navbar = () => {
     return (
         <>
             {/* Top Bar */}
-            <nav className="fixed top-0 left-0 right-0 z-[9999] p-6 flex justify-between items-center pointer-events-none">
-                {/* Logo - Pointer events auto to allow clicking */}
-                <Link href="/" className="pointer-events-auto cursor-none">
-                    <div className="transform -rotate-1 hover:rotate-2 transition-transform w-[180px]">
-                        <Image
-                            src="/logo.png"
-                            alt="Dropout Hacks"
-                            width={200}
-                            height={80}
-                            className="object-contain drop-shadow-[4px_4px_0_rgba(0,0,0,0.5)]"
-                        />
-                    </div>
-                </Link>
+            <nav 
+                className={clsx(
+                    "fixed top-0 left-0 right-0 z-[9999] p-4 md:p-6 pointer-events-none transition-transform duration-300",
+                    isVisible ? "translate-y-0" : "-translate-y-[150%]"
+                )}
+            >
+                <div className="w-full flex justify-between items-center relative">
+                    {/* Logo - Pointer events auto to allow clicking */}
+                    <Link href="/" className="pointer-events-auto cursor-none relative z-10 w-auto">
+                        <div className="transform -rotate-1 hover:rotate-2 transition-transform w-[140px] md:w-[180px]">
+                            <Image
+                                src="/logo.png"
+                                alt="Dropout Hacks"
+                                width={200}
+                                height={80}
+                                className="object-contain drop-shadow-[4px_4px_0_rgba(0,0,0,0.5)]"
+                            />
+                        </div>
+                    </Link>
 
-                {/* Hamburger Button */}
-                <button
-                    onClick={toggleMenu}
-                    aria-label="Toggle navigation menu"
-                    className="pointer-events-auto bg-[var(--color-comic-blue)] text-black border-2 border-black p-2 hover:bg-white transition-colors shadow-[4px_4px_0_black] cursor-none"
-                >
-                    {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
-                </button>
+                    {/* Desktop Segmented Comic Navbar */}
+                    <div className="pointer-events-auto hidden lg:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 bg-[#050510]/80 backdrop-blur-md border-2 border-white shadow-[4px_4px_0_white] hover:shadow-[6px_6px_0_white] transition-shadow duration-300">
+                        {navLinks.map((link, idx) => {
+                            const hoverColors = [
+                                "hover:bg-[var(--color-comic-yellow)] hover:text-black",
+                                "hover:bg-[var(--color-comic-blue)] hover:text-black",
+                                "hover:bg-[var(--color-comic-red)] hover:text-white",
+                                "hover:bg-[var(--color-comic-purple)] hover:text-white",
+                                "hover:bg-white hover:text-black",
+                            ];
+                            const stickers = ["BAM!", "ZIP!", "POW!", "SNAP!", "BOOM!", "WOW!", "ZAP!"];
+                            const hoverColor = hoverColors[idx % hoverColors.length];
+                            const sticker = stickers[idx % stickers.length];
+                            const isLast = idx === navLinks.length - 1;
+
+                            return (
+                                <Link 
+                                    key={idx} 
+                                    href={link.href} 
+                                    className={clsx(
+                                        "group px-4 xl:px-6 py-2 xl:py-3 font-black uppercase text-sm xl:text-lg font-[family-name:var(--font-comic)] text-white transition-all duration-200 cursor-none relative flex items-center justify-center",
+                                        !isLast && "border-r-2 border-white",
+                                        hoverColor
+                                    )}
+                                >
+                                    <span className="relative z-10 group-hover:scale-110 transition-transform whitespace-nowrap">
+                                        {link.name}
+                                    </span>
+                                    
+                                    {/* Comic Sticker on Hover */}
+                                    <span className={clsx(
+                                        "absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[var(--color-comic-yellow)] text-black text-[10px] xl:text-xs font-black px-2 py-0.5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-black shadow-[2px_2px_0_black] z-20 whitespace-nowrap",
+                                        idx % 2 === 0 ? "-rotate-6" : "rotate-6"
+                                    )}>
+                                        {sticker}
+                                    </span>
+                                </Link>
+                            );
+                        })}
+                    </div>
+
+                    {/* Hamburger Button */}
+                    <button
+                        onClick={toggleMenu}
+                        aria-label="Toggle navigation menu"
+                        className="pointer-events-auto lg:hidden relative z-10 bg-[var(--color-comic-blue)] text-black border-2 border-black p-2 hover:bg-white transition-colors shadow-[4px_4px_0_black] cursor-none"
+                    >
+                        {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+                    </button>
+                    
+                    {/* Invisible spacer to balance flex space-between */}
+                    <div className="hidden lg:block w-[140px] md:w-[180px]"></div>
+                </div>
             </nav>
 
             {/* The Web Pull Animation & Sidebar */}

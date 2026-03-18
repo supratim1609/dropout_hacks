@@ -2,6 +2,26 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+<<<<<<< Updated upstream
+=======
+import Image from "next/image";
+
+import { SPONSORS } from "@/app/data/sponsors";
+
+// Function to chunk sponsors into tiers
+const getPyramidRows = (sponsors: typeof SPONSORS) => {
+    if (sponsors.length === 0) return [];
+    
+    // Example logic: top 1, next 4, then the rest
+    return [
+        sponsors.slice(0, 1),
+        sponsors.slice(1, 5),
+        sponsors.slice(5)
+    ].filter(row => row.length > 0);
+};
+
+const PYRAMID_ROWS = getPyramidRows(SPONSORS);
+>>>>>>> Stashed changes
 
 export const SponsorsSection = () => {
     return (
