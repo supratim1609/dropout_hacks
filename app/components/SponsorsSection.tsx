@@ -2,8 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-<<<<<<< Updated upstream
-=======
 import Image from "next/image";
 
 import { SPONSORS } from "@/app/data/sponsors";
@@ -21,7 +19,6 @@ const getPyramidRows = (sponsors: typeof SPONSORS) => {
 };
 
 const PYRAMID_ROWS = getPyramidRows(SPONSORS);
->>>>>>> Stashed changes
 
 export const SponsorsSection = () => {
     return (
