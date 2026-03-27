@@ -69,7 +69,8 @@ export const DailyBugleModal = () => {
                             {/* Header */}
                             <div className="border-b-4 border-black pb-2 mb-4 text-center">
                                 <div className="flex justify-between items-center text-[8px] md:text-[10px] font-bold uppercase border-b border-black mb-1 pb-1">
-                                    <span>March 28-29, 2026</span>
+                                    <span>TBD</span>
+                                    <span className="text-yellow-500 font-bold animate-pulse ml-2">Date Postponed</span>
                                     <span>Kolkata Edition</span>
                                     <span>Price: One Idea</span>
                                 </div>

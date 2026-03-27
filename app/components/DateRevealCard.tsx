@@ -31,11 +31,11 @@ export const DateRevealCard = () => {
                         {/* Clean Date Display */}
                         <div className="relative mb-6 text-center">
                             <h3 className="text-5xl md:text-6xl font-black italic uppercase text-white drop-shadow-[4px_4px_0_var(--color-comic-blue)] tracking-tighter transition-transform duration-300 group-hover:scale-110">
-                                MAR' 28-29
+                                TBD
                             </h3>
-                            <h3 className="text-4xl font-black italic uppercase text-transparent bg-clip-text bg-gradient-to-b from-gray-200 to-gray-500 tracking-widest mt-2">
-                                2026
-                            </h3>
+                            <div className="text-lg md:text-xl font-bold text-yellow-400 mt-2 animate-pulse">
+                                Date Postponed
+                            </div>
                         </div>
                     </div>
 
